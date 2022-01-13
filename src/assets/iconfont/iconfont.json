@@ -1,0 +1,44 @@
+{
+  "id": "2973843",
+  "name": "实习项目",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5135",
+      "name": "数码手机",
+      "font_class": "shumashouji",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "1727584",
+      "name": "404定位",
+      "font_class": "dingwei",
+      "unicode": "e900",
+      "unicode_decimal": 59648
+    },
+    {
+      "icon_id": "3456457",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e70f",
+      "unicode_decimal": 59151
+    },
+    {
+      "icon_id": "6279237",
+      "name": "分类",
+      "font_class": "fenlei",
+      "unicode": "e699",
+      "unicode_decimal": 59033
+    },
+    {
+      "icon_id": "7597954",
+      "name": "24gl-extractRight",
+      "font_class": "24gl-extractRight",
+      "unicode": "eb6f",
+      "unicode_decimal": 60271
+    }
+  ]
+}

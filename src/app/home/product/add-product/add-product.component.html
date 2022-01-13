@@ -1,0 +1,152 @@
+<div class="product-content">
+  <app-head-text>
+    <span left>新增手册</span>
+  </app-head-text>
+
+  <div class="body-add">
+    <form nz-form class="body">
+      <nz-form-item>
+        <i>*</i>
+        <nz-form-label nzFor="email">产品分类</nz-form-label>
+        <nz-form-control>
+          <nz-select
+            [(ngModel)]="manual.productCode"
+            nzAllowClear
+            nzShowSearch
+            nzPlaceHolder="请选择产品分类"
+            name="productCode"
+          >
+            <nz-option-group
+              *ngFor="let item of productTypeList; index as i"
+              [nzLabel]="item.itemName"
+            >
+              <nz-option
+                *ngFor="let subItem of item.children"
+                [nzValue]="subItem.itemCode"
+                [nzLabel]="subItem.itemName"
+              >
+              </nz-option>
+            </nz-option-group>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <i>*</i>
+        <nz-form-label nzFor="email">产品品牌</nz-form-label>
+        <nz-form-control>
+          <nz-select
+            [(ngModel)]="manual.companyId"
+            nzPlaceHolder="请选择产品品牌"
+            nzAllowClear="true"
+            name="companyId"
+          >
+            <nz-option
+              *ngFor="let company of companyList"
+              [nzValue]="company.id"
+              [nzLabel]="company.companyName"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <i>*</i>
+        <nz-form-label nzFor="email">产品名称</nz-form-label>
+        <nz-form-control>
+          <input
+            [(ngModel)]="manual.manualSerie"
+            name="manualSerie"
+            type="text"
+            nz-input
+            style="width: 126px"
+          />
+          <span style="margin-left: 10px; margin-right: 10px">—</span>
+          <input
+            [(ngModel)]="manual.manualName"
+            name="manualName"
+            type="text"
+            nz-input
+            style="width: 313px"
+          />
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+    <div class="product-size">
+      <div class="text">产品型号：</div>
+      <!-- 保存时，左侧的按钮列表 -->
+      <div class="btn-content">
+        <app-manual-model-btn-list
+          *ngFor="let model of manual.modelList; index as idx"
+          [btnValue]="model.modelName"
+          [onHandleEdit]="editModel(model, idx)"
+        >
+          ></app-manual-model-btn-list
+        >
+      </div>
+      <button (click)="addModel()" nz-button nzType="dashed" class="up-loader">
+        +
+      </button>
+    </div>
+
+    <app-manual-model-config
+      [configList]="manual.configList!"
+    ></app-manual-model-config>
+
+    <div class="product-size">
+      <div class="text">产品图片：</div>
+
+      <nz-upload
+        class="avatar-uploader"
+        nzAction="/api/content/upload"
+        nzListType="picture-card"
+        [(nzFileList)]="fileList"
+        [nzName]="'file'"
+        [nzAccept]="'image/png,image/jpeg,image/gif,image/bmp'"
+        (nzChange)="imgUploadChange($event)"
+      >
+        <ng-container>
+          <div class="ant-upload-text">+</div>
+          <div>上传</div>
+        </ng-container>
+      </nz-upload>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="foot-control">
+      <nz-tabset>
+        <nz-tab nzTitle="产品介绍">
+          <!-- <textarea
+            id="editor"
+            type="text/plain"
+            style="width: 100%; height: 500px"
+          ></textarea> -->
+          <textarea
+            id="editor"
+            type="text/plain"
+            style="width: 100%; height: 500px"
+          ></textarea>
+        </nz-tab>
+        <nz-tab nzTitle="技术参数">Content of Tab Pane 2</nz-tab>
+        <nz-tab nzTitle="产品说明书">Content of Tab Pane 3</nz-tab>
+      </nz-tabset>
+    </div>
+    <div style="float: right">
+      <button nz-button nzType="primary" (click)="save()">保存</button>
+      <button
+        nz-button
+        nzType="primary"
+        nzDanger
+        style="margin-left: 15px"
+        (click)="cancel()"
+      >
+        取消
+      </button>
+    </div>
+  </div>
+
+  <app-manual-model-modal
+    [(isVisible)]="isShowModal"
+    [model]="currentModel"
+    (onSave)="saveModel($event)"
+    [isEdit]="selectedModelIndex > -1"
+  ></app-manual-model-modal>
+</div>

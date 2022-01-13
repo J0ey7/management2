@@ -1,0 +1,26 @@
+<nz-tabset
+  class="reuse-tabs"
+  nzType="card"
+  [(nzSelectedIndex)]="currentIndex"
+  [nzType]="'card'"
+>
+  <nz-tab
+    class="reuse-tab"
+    *ngFor="let tab of tabList; trackBy: trackByItems"
+    [nzTitle]="nzTabHeading"
+  >
+    <ng-template #nzTabHeading>
+      <div class="title">
+        <span>{{ tab.title }}</span>
+        <i
+          *ngIf="tab.closeable !== false && tabList.length > 1"
+          (click)="onTabClose(tab)"
+          nz-icon
+          nzType="close"
+          nzTheme="outline"
+        ></i>
+      </div>
+    </ng-template>
+    <app-tab-tpl [tab]="tab"></app-tab-tpl>
+  </nz-tab>
+</nz-tabset>

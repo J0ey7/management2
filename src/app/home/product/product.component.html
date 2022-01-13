@@ -1,0 +1,131 @@
+<div class="content">
+  <!-- 左侧分类栏 -->
+  <div class="left-list">
+    <nz-tree
+      *ngIf="nodes1"
+      [nzData]="nodes1"
+      [nzExpandAll]="expand"
+      nzBlockNode
+      (nzClick)="nzEvent($event)"
+    ></nz-tree>
+  </div>
+  <!-- 右侧商品栏 -->
+  <div class="right-product">
+    <div class="product-content">
+      <app-head-text>
+        <p left>手册列表</p>
+        <!-- <button nz-button nzType="primary" right (click)="addProduct()">
+          + 新增
+        </button> -->
+        <button
+          nz-button
+          nzType="primary"
+          right
+          (click)="addTab('AddProductComponent')"
+        >
+          + 新增
+        </button>
+      </app-head-text>
+      <div class="center">
+        <table class="search">
+          <tr class="top">
+            <td>产品品牌：</td>
+            <td>
+              <nz-select
+                style="width: 250px; text-align: start"
+                [(ngModel)]="manualSearch.company"
+                (ngModelChange)="getCompanysById($event, 'companyId')"
+              >
+                <nz-option
+                  *ngFor="let company of companys"
+                  [nzValue]="company"
+                  [nzLabel]="company.companyName"
+                ></nz-option>
+              </nz-select>
+            </td>
+            <td>产品名称：</td>
+            <td>
+              <nz-input-group
+                [nzSuffix]="suffixIconSearch"
+                style="
+                  width: 250px;
+                  display: flex;
+                  justify-content: space-between;
+                  background-color: #fff;
+                  margin-left: 10px;
+                "
+              >
+                <input
+                  type="text"
+                  [(ngModel)]="manualSearch.productName"
+                  nz-input
+                  style="width: 100%; background-color: #fff; text-align: left"
+                  (keyup)="onInputChange($event)"
+                />
+              </nz-input-group>
+              <ng-template #suffixIconSearch>
+                <i
+                  nz-icon
+                  nzType="search"
+                  (click)="search(manualSearch.productName!, 'name')"
+                ></i>
+              </ng-template>
+            </td>
+          </tr>
+          <tr class="bottom">
+            <td colspan="3">
+              &nbsp;
+              <span>已选条件：</span>
+
+              <ng-container *ngFor="let tag of tags; let i = index">
+                <nz-tag
+                  *ngIf="!tag.hide && tag.value"
+                  [nzColor]="'#62A8EA'"
+                  [nzMode]="'closeable'"
+                  (nzOnClose)="removeTag(tag)"
+                  >{{ tag.title }}：{{ tag.text }}</nz-tag
+                >
+              </ng-container>
+            </td>
+            <td>
+              <div class="button-list">
+                <button nz-button nzType="primary" (click)="doAllSearch()">
+                  查询
+                </button>
+                <button nz-button nzType="primary" (click)="clearSearch()">
+                  清除
+                </button>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="footer">
+        <p>{{ title }}</p>
+        <ul class="img-list">
+          <a
+            *ngFor="let product of products"
+            (click)="addTab('ProductDetailComponent', product.id)"
+          >
+            <li>
+              <img [src]="baseUrl + product.img" alt="" />
+              <div class="img-text">{{ product.manualName }}</div>
+            </li>
+          </a>
+        </ul>
+        <!-- <nz-pagination
+          [nzPageIndex]="nzPageIndex"
+          [nzTotal]="nzTotal"
+          nzShowSizeChanger
+          [nzPageSize]="nzPageSize"
+        ></nz-pagination> -->
+
+        <app-pagination-tpl
+          [page]="page"
+          (pageChanged)="pageChanged($event)"
+        ></app-pagination-tpl>
+      </div>
+    </div>
+  </div>
+</div>

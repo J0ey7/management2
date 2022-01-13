@@ -1,0 +1,55 @@
+<nz-layout>
+  <nz-header class="top-bar">
+    <div class="logo"><span>综合管理平台</span></div>
+    <ul nz-menu nzTheme="dark" nzMode="horizontal" class="header-menu">
+      <li nz-menu-item nzSelected>产品管理</li>
+      <li nz-menu-item>系统管理</li>
+    </ul>
+  </nz-header>
+  <nz-layout>
+    <nz-sider nzWidth="200px" nzTheme="light" class="left-bar">
+      <ul nz-menu nzMode="inline" class="sider-menu">
+        <li nz-submenu nzOpen nzIcon="user" nzTitle="产品手册">
+          <ul>
+            <li nz-menu-item nzSelected>
+              <a routerLink="product">手册列表</a>
+            </li>
+            <li nz-menu-item>
+              <a routerLink="detail">商品详情</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="产品中心" nzIcon="laptop">
+          <ul>
+            <li nz-menu-item>
+              <a routerLink="productCenter">产品列表</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="subnav 3" nzIcon="notification">
+          <ul>
+            <li nz-menu-item>option9</li>
+            <li nz-menu-item>option10</li>
+            <li nz-menu-item>option11</li>
+            <li nz-menu-item>option12</li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+
+    <nz-layout class="inner-layout">
+      <!-- 头部控制 -->
+      <div class="top-control">
+        <nz-tabset>
+          <nz-tab *ngFor="let tab of tabs" nzClosable [nzTitle]="tab"
+            >Content of {{ tab }}</nz-tab
+          >
+        </nz-tabset>
+        <div></div>
+      </div>
+      <nz-content class="content-control">
+        <router-outlet></router-outlet>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+</nz-layout>

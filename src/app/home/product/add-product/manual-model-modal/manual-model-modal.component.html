@@ -1,0 +1,32 @@
+<nz-modal
+  [nzVisible]="isVisible"
+  (nzOnCancel)="closeModal()"
+  nzTitle="添加型号"
+  [nzWidth]="900"
+>
+  <ng-container *nzModalContent>
+    <table class="handle-table">
+      <tr class="item">
+        <td class="label required"><label>产品型号：</label></td>
+        <td>
+          <input
+            type="text"
+            nz-input
+            placeholder="请输入产品型号"
+            style="width: 440px"
+            [(ngModel)]="model.modelName"
+          />
+        </td>
+      </tr>
+    </table>
+    <app-manual-model-config
+      [configList]="model.configList!"
+    ></app-manual-model-config>
+  </ng-container>
+  <div *nzModalFooter>
+    <button nz-button nzType="default" (click)="save()">保存</button>
+    <button nz-button nzType="primary" (click)="isEdit ? del() : closeModal()">
+      {{ isEdit ? "删除" : "取消" }}
+    </button>
+  </div>
+</nz-modal>

@@ -1,0 +1,6 @@
+.pagination-container {
+  overflow: hidden;
+}
+nz-pagination {
+  float: right;
+}

@@ -1,0 +1,19 @@
+:host ::ng-deep .reuse-tabs.ant-tabs-card {
+  & > .ant-tabs-nav {
+    position: fixed;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  & > .ant-tabs-content-holder {
+    margin-top: 40px;
+    overflow-y: auto;
+    & > .ant-tabs-content {
+      overflow: hidden;
+      height: calc(~"100vh - 104px");
+      .ant-tabs-tabpane {
+        min-height: 100%;
+        overflow-y: auto;
+      }
+    }
+  }
+}

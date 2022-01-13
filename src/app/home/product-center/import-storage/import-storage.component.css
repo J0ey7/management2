@@ -1,0 +1,60 @@
+.wrapper {
+  width: 1656px;
+}
+app-head-text {
+  line-height: 3.3em;
+  font-size: 1.2em;
+}
+.body-add {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+}
+.body {
+  width: 50%;
+}
+.body-add i {
+  color: red;
+  font-size: 1.2em;
+  margin: 0 1.5em;
+}
+
+.body button {
+  margin-left: 10px;
+}
+.body img {
+  width: 150px;
+  height: 200px;
+}
+.specs-wrapper {
+  margin-left: 25px;
+}
+.specs-wrapper p {
+  font-size: 16px;
+}
+.specs {
+  height: 200px;
+  border: 1px solid rgb(204, 204, 204);
+  margin-left: 100px;
+}
+.button-list {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-bottom: 30px;
+}
+.button-list button {
+  margin-left: 10px;
+}
+
+.active {
+  color: red;
+  background-color: red;
+}
+
+/* :host ::ng-deep .ant-btn {
+} */
+.active {
+  color: red;
+}

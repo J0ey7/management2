@@ -1,0 +1,31 @@
+<div class="model-btn">
+  <input
+    style="padding-left: 10px"
+    type="text"
+    [ngModel]="valueText"
+    (ngModelChange)="onNgModelChange($event)"
+    *ngIf="editText; else notEditable"
+    required
+  />
+  <!-- 在编辑页面 -->
+  <ng-template #notEditable>
+    <span class="title">{{ valueText }}</span>
+  </ng-template>
+  <!-- 在新增页面-->
+  <span class="close">
+    <i
+      *ngIf="!onHandleEdit; else edit"
+      (click)="close()"
+      [class.hover]="isShowHover"
+      (mouseover)="isShowHover = true"
+      (mouseleave)="isShowHover = false"
+      nz-icon
+      [nzType]="isShowHover ? 'close-circle' : 'close'"
+      [nzTheme]="isShowHover ? 'fill' : 'outline'"
+    >
+    </i>
+    <ng-template #edit>
+      <i nz-icon nzType="edit" nzTheme="outline" (click)="editBtn()"> </i>
+    </ng-template>
+  </span>
+</div>

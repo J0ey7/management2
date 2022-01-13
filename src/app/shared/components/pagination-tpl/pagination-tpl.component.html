@@ -1,0 +1,25 @@
+<!-- 页数组件 -->
+<div class="pagination-container" *ngIf="page">
+  <span class="pagination-info">
+    第 {{ (page.currentPage - 1) * page.pageRecord + 1 }} 至
+    {{ page.pageRecord! * page.currentPage! }} 条，共
+    {{ page.recordCount }} 条记录，每页显示
+  </span>
+  <!-- 页数选择   请求体中的pageCode -->
+  <nz-select
+    [ngModel]="page.pageRecord + ''"
+    (ngModelChange)="pageSizeChanged($event)"
+  >
+    <nz-option nzValue="6" nzLabel="6"></nz-option>
+    <nz-option nzValue="12" nzLabel="12"></nz-option>
+    <nz-option nzValue="20" nzLabel="20"></nz-option>
+  </nz-select>
+  <!-- 页数切换   请求体中的currentPage -->
+  <nz-pagination
+    [nzPageIndex]="page.currentPage"
+    [nzTotal]="page.recordCount"
+    [nzPageSize]="page.pageRecord"
+    (nzPageIndexChange)="pageIndexChanged($event)"
+  >
+  </nz-pagination>
+</div>

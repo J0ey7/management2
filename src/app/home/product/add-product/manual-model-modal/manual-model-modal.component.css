@@ -1,0 +1,33 @@
+.top {
+  width: 100%;
+}
+label::before {
+  content: "*";
+  width: 10px;
+  height: 10px;
+  line-height: 10px;
+  color: red;
+  text-align: center;
+  box-sizing: border-box;
+  float: left;
+  margin-top: 7px;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.item input {
+  border: 0.1em rgb(222, 222, 222) solid;
+  height: 30px;
+  width: 80%;
+  margin: 0 10px;
+}
+.item input:hover {
+  border: 1px solid rgb(64, 169, 255);
+  transition: 1s;
+}
+.item input:focus {
+  outline: none;
+  border: 1px solid rgb(64, 169, 255);
+}

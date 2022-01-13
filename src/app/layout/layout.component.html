@@ -1,0 +1,44 @@
+<nz-layout class="layout">
+  <nz-header>
+    <div class="logo">
+      <img src="../../assets/img/u20.png" alt="" />
+    </div>
+    <div class="title">综合管理平台</div>
+    <ul nz-menu nzTheme="dark" nzMode="horizontal" class="header-menu">
+      <li nz-menu-item>产品管理</li>
+      <li nz-menu-item>系统管理</li>
+    </ul>
+  </nz-header>
+  <nz-layout>
+    <nz-sider nzWidth="200px">
+      <ul nz-menu nzMode="inline" class="sider-menu" nzTheme="dark">
+        <li nz-submenu nzOpen nzIcon="unordered-list" nzTitle="产品手册">
+          <ul>
+            <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+              <a href="javascript:void(0)" (click)="addTab('ProductComponent')"
+                >手册管理</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzOpen nzIcon="appstore" nzTitle="产品中心">
+          <ul>
+            <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+              <a
+                href="javascript:void(0)"
+                (click)="addTab('ProductCenterComponent')"
+                >产品列表</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout class="inner-layout">
+      <nz-content>
+        <!-- <router-outlet></router-outlet> -->
+        <app-reuse-tabset></app-reuse-tabset>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+</nz-layout>

@@ -1,0 +1,53 @@
+<table class="product-params">
+  <tr class="top">
+    <td>型号配置 :</td>
+    <td>
+      <button nz-button nzType="default" (click)="addConfig()">+添加</button>
+    </td>
+  </tr>
+  <tr class="foot">
+    <td style="width: 5%">序号</td>
+    <td style="width: 10%">配置名称</td>
+    <td style="width: 70%">配置参数</td>
+    <td style="width: 5%">多选</td>
+    <td style="width: 10%; border-right: none">操作</td>
+  </tr>
+  <!-- 添加的内容 -->
+  <tr class="foot" *ngFor="let config of configList; index as idx">
+    <td style="width: 5%">{{ idx + 1 }}</td>
+    <td style="width: 10%">
+      <input type="text" [(ngModel)]="config.name" width="20px" />
+    </td>
+    <td style="width: 70%; text-align: start; display: flex; flex-wrap: wrap">
+      <div class="btn-content">
+        <app-manual-model-btn-list
+          *ngFor="let configListValue of config.configvalueList; index as idj"
+          [editText]="true"
+          [(btnValue)]="configListValue.value"
+          (onClose)="removeConfigValue(config, idj)"
+        >
+        </app-manual-model-btn-list>
+      </div>
+      <div class="footbtn">
+        <button
+          nz-button
+          nzType="dashed"
+          style="width: 60px"
+          (click)="addConfigValue(config)"
+        >
+          <i nz-icon nzTheme="outline" nzType="plus"></i>
+        </button>
+      </div>
+    </td>
+
+    <td style="width: 5%">
+      <label nz-checkbox [(ngModel)]="config.isMulti"></label>
+    </td>
+    <td style="width: 10%; border-right: none">
+      <a href="javascript:void(0)" (click)="removeConfig(idx)">
+        <i nz-icon nzType="close" style="color: #333" nzTheme="outline"></i>
+        <span style="color: #333; margin-left: 6px">删除</span>
+      </a>
+    </td>
+  </tr>
+</table>

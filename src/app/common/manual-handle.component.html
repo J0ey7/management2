@@ -1,0 +1,161 @@
+<!--内容投影-->
+<app-panel-tpl panelTitle="新增手册" [footerTpl]="footerTpl">
+  <table class="handle-table">
+    <tr>
+      <td class="label required">
+        <label for="">产品分类：</label>
+      </td>
+      <td>
+        <nz-select
+          [(ngModel)]="manual.productCode"
+          nzAllowClear
+          nzPlaceHolder="请选择产品分类"
+          nzShowSearch
+        >
+          <nz-option-group
+            [nzLabel]="item.itemName"
+            *ngFor="let item of productTypeList; index as i"
+          >
+            <nz-option
+              *ngFor="let subItem of item.children"
+              [nzValue]="subItem.itemCode"
+              [nzLabel]="subItem.itemName"
+            ></nz-option>
+          </nz-option-group>
+        </nz-select>
+      </td>
+    </tr>
+    <tr>
+      <td class="label required">
+        <label for="">产品品牌：</label>
+      </td>
+      <td>
+        <nz-select
+          [(ngModel)]="manual.companyId"
+          nzPlaceHolder="请选择产品品牌"
+          nzAllowClear="true"
+        >
+          <nz-option
+            *ngFor="let item of companyList"
+            [nzValue]="item.id"
+            [nzLabel]="item.companyName"
+          ></nz-option>
+        </nz-select>
+      </td>
+    </tr>
+    <tr>
+      <td class="label required">
+        <label for="">产品名称：</label>
+      </td>
+      <td>
+        <input
+          type="text"
+          nz-input
+          style="width: 126px"
+          [(ngModel)]="manual.manualSerie"
+        />
+        <span style="margin-left: 10px; margin-right: 10px">—</span>
+        <input
+          type="text"
+          nz-input
+          style="width: 260px"
+          [(ngModel)]="manual.manualName"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td class="label"><label for="">产品型号：</label></td>
+      <td>
+        <app-manual-model-btn
+          *ngFor="let item of manual?.modelList; index as idx"
+          [btnValue]="item.modelName"
+          [onHandleEdit]="editModel(item, idx)"
+        ></app-manual-model-btn>
+        <button
+          nz-button
+          nzType="dashed"
+          (click)="addModel()"
+          style="width: 80px"
+        >
+          <i nz-icon nzType="plus" nzTheme="outline"></i>
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <app-manual-model-config [configList]="manual.configList!">
+        </app-manual-model-config>
+      </td>
+    </tr>
+    <tr>
+      <td class="label">
+        <label for="">产品图片：</label>
+      </td>
+      <td>
+        <div class="clearfix">
+          <nz-upload
+            nzAction="/api/content/upload"
+            nzListType="picture-card"
+            [(nzFileList)]="fileList"
+            [nzName]="'file'"
+            [nzAccept]="'image/png,image/jpeg,image/gif,image/bmp'"
+            (nzChange)="imgUploadChange($event)"
+          >
+            <div>
+              <i nz-icon nzType="plus"></i>
+              <div style="margin-top: 8px">上传</div>
+            </div>
+          </nz-upload>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <nz-tabset>
+          <nz-tab nzTitle="产品介绍">
+            <textarea
+              id="editor"
+              type="text/plain"
+              style="width: 100%; height: 500px"
+            ></textarea>
+            <!-- <textarea
+              rows="5"
+              style="
+                resize: none;
+                width: 100%;
+                outline: none;
+                border-radius: 4px;
+              "
+              [(ngModel)]="manual.introduction"
+            ></textarea> -->
+          </nz-tab>
+          <nz-tab nzTitle="技术参数">Content of Tab Pane 2</nz-tab>
+          <nz-tab nzTitle="产品说明书">Content of Tab Pane 3</nz-tab>
+        </nz-tabset>
+      </td>
+    </tr>
+  </table>
+</app-panel-tpl>
+<ng-template #footerTpl>
+  <div style="float: right">
+    <button nz-button nzType="primary" (click)="save()">保存</button>
+    <button
+      nz-button
+      nzType="primary"
+      nzDanger
+      style="margin-left: 15px"
+      (click)="cancel()"
+    >
+      取消
+    </button>
+  </div>
+</ng-template>
+
+<!--新增、编辑 产品型号-->
+<!-- 知识点： 自定义双向绑定、父子组件传值 -->
+<app-manual-model-modal
+  [(isVisible)]="isModelModalVisible"
+  (onSave)="saveModel($event)"
+  [model]="currentManualModel"
+  [isEdit]="selectedModelIndex > -1"
+></app-manual-model-modal>

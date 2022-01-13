@@ -1,0 +1,187 @@
+<div class="detail-content">
+  <app-head-text>
+    <p left>商品详情</p>
+    <!-- 路由跳转方式 -->
+    <!-- <button nz-button nzType="primary" right (click)="editClick()">编辑</button> -->
+    <button
+      nz-button
+      nzType="primary"
+      right
+      (click)="addTab('EditProductComponent', data.id)"
+    >
+      编辑
+    </button>
+  </app-head-text>
+
+  <div class="product-body">
+    <div class="wrapper">
+      <div class="img-left">
+        <div class="img-show">
+          <img [src]="selecteImg?.filePath + '/' + selecteImg?.storeName" />
+        </div>
+
+        <!-- 选择预览区域,最多展示四条 -->
+        <div class="img-start-left">
+          <button (click)="preImg()">
+            <i nz-icon nzType="left" nzTheme="outline"></i>
+          </button>
+          <nz-carousel>
+            <div class="carousel-content">
+              <!-- <img
+                [src]="productImg[0]"
+                style="width: 100px; height: 100%; margin: 0 auto"
+              /> -->
+
+              <div class="item" *ngFor="let img of imgList; index as i">
+                <a
+                  *ngIf="img.id"
+                  href="javascript:void(0)"
+                  (click)="selectedImgIndex = i"
+                  [hidden]="isNotActive(i)"
+                >
+                  <img
+                    [src]="img.filePath + '/' + img.storeName"
+                    style="width: 74px; height: 100%"
+                  />
+                </a>
+              </div>
+            </div>
+          </nz-carousel>
+          <button (click)="nextImg()">
+            <i nz-icon nzType="right" nzTheme="outline"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="right-info">
+        <table>
+          <tr class="title">
+            <td>{{ productName }}</td>
+          </tr>
+          <tr>
+            <td style="width: 235.02px">手册编号</td>
+            <td>
+              <span>{{ productCode }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td>产品分类</td>
+            <td><span>航标灯器>小型灯器</span></td>
+          </tr>
+          <tr>
+            <td>产品品牌</td>
+            <td>
+              <span>{{ companyName }}</span>
+            </td>
+          </tr>
+
+          <tr class="line">
+            <td style="width: 235.02px">产品型号</td>
+            <td>
+              <button
+                nz-button
+                (click)="selectedModel = model"
+                [nzType]="isModelSelected(model) ? 'primary' : 'default'"
+                [nzGhost]="isModelSelected(model)"
+                *ngFor="let model of manual.modelList"
+              >
+                {{ model.modelName }}
+              </button>
+            </td>
+          </tr>
+          <!-- 公共的配置 -->
+          <tr *ngFor="let config of manual.configList">
+            <td style="width: 235.02px">{{ config.name }}</td>
+            <td>
+              <nz-button-group>
+                <button
+                  nz-button
+                  nzType="primary"
+                  nzGhost
+                  *ngFor="let configvalue of config.configvalueList"
+                >
+                  {{ configvalue.value }}
+                </button>
+              </nz-button-group>
+            </td>
+          </tr>
+          <!-- <tr>
+            <td style="width: 235.02px">角度</td>
+            <td>
+              <nz-button-group>
+                <button nz-button nzType="default" nzSize="default">5°</button>
+                <button nz-button nzType="default" nzSize="default">3°</button>
+                <button nz-button nzType="default" nzSize="default">10°</button>
+              </nz-button-group>
+            </td>
+          </tr> -->
+          <!-- <tr *ngFor="let config of lastParams">
+            <td style="width: 235.02px">{{ config.name }}</td>
+            <td>
+              <nz-button-group>
+                <button
+                  nz-button
+                  nzType="default"
+                  nzSize="default"
+                  *ngFor="let values of config.values"
+                  [disabled]="values.hostId === isShowParams"
+                >
+                  {{ values.value }}
+                </button>
+              </nz-button-group>
+            </td>
+          </tr> -->
+          <!-- <tr>
+            <td style="width: 235.02px">防护等级</td>
+            <td>
+              <nz-button-group>
+                <button nz-button nzType="default" nzSize="default">
+                  IP66
+                </button>
+                <button nz-button nzType="default" nzSize="default">
+                  IP68
+                </button>
+              </nz-button-group>
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 235.02px">重量</td>
+            <td>
+              <nz-button-group>
+                <button nz-button nzType="default" nzSize="default">
+                  聚碳酸酯 0.77kg（1.7lbs）
+                </button>
+                <button nz-button nzType="default" nzSize="default">
+                  铝 1.97kg（4.3lbs）
+                </button>
+              </nz-button-group>
+            </td>
+          </tr> -->
+          <tr class="config" *ngFor="let config of computedConValList">
+            <td>{{ config.name }}</td>
+            <td>
+              <button
+                nz-button
+                [nzType]="isConValSelected(configvalue) ? 'primary' : 'dashed'"
+                [nzGhost]="isConValSelected(configvalue)"
+                [disabled]="!isConValSelected(configvalue)"
+                *ngFor="let configvalue of config.configvalueList"
+              >
+                {{ configvalue.value }}
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="product-message" *ngIf="product">
+      <nz-tabset>
+        <nz-tab nzTitle="产品介绍">
+          <div [innerHTML]="introduction"></div>
+        </nz-tab>
+        <nz-tab nzTitle="技术参数">Content of Tab Pane 2</nz-tab>
+        <nz-tab nzTitle="产品说明书">Content of Tab Pane 3</nz-tab>
+      </nz-tabset>
+    </div>
+  </div>
+</div>

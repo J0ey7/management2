@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost:4200/addProduct -->
+<html lang="en" class="cdk-global-scrollblock" style="left: 0px; top: 0px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Management2</title>
+    <!--<base href="/">--><base href=".">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="http://localhost:4200/favicon.ico">
+    <link rel="stylesheet" href="./Management2_files/iconfont.css">
+  <link rel="stylesheet" href="./Management2_files/styles.css"><style>
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAuY29tcG9uZW50LmNzcyJ9 */</style><style>.top-bar[_ngcontent-pbk-c106] {
+  background-color: #4e97d9;
+  z-index: 1;
+  width: 100%;
+  height: 6.4em;
+  position: fixed;
+}
+.left-bar[_ngcontent-pbk-c106] {
+  z-index: 9;
+  position: fixed;
+  height: 100%;
+  top: 6.4em;
+}
+
+.content-control[_ngcontent-pbk-c106] {
+  box-sizing: border-box;
+  width: auto;
+  top: 10.4em;
+  left: 22em;
+  padding-left: 0;
+  padding-top: 0;
+  position: absolute;
+  
+  height: auto;
+  background-color: rgb(241, 244, 245);
+}
+.header-menu[_ngcontent-pbk-c106] {
+  background-color: #4e97d9;
+}
+.logo[_ngcontent-pbk-c106] {
+  width: 150px;
+  height: 100%;
+
+  margin-right: 30px;
+  background-image: url('u20.png');
+  background-size: 40px 40px;
+  background-position: 0px 12px;
+  background-repeat: no-repeat;
+  float: left;
+  padding-left: 4.5em;
+}
+.logo[_ngcontent-pbk-c106]   span[_ngcontent-pbk-c106] {
+  color: #fff;
+  font-size: 1.7em;
+}
+.header-menu[_ngcontent-pbk-c106] {
+  line-height: 64px;
+}
+.sider-menu[_ngcontent-pbk-c106] {
+  height: 100%;
+  border-right: 0;
+}
+.inner-layout[_ngcontent-pbk-c106] {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 0 20px 20px;
+  
+  
+}
+nz-breadcrumb[_ngcontent-pbk-c106] {
+  margin: 16px 0;
+}
+nz-content[_ngcontent-pbk-c106] {
+  background: #fff;
+  padding: 24px;
+  min-height: 280px;
+}
+
+.top-control[_ngcontent-pbk-c106] {
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 1700px;
+  height: 4em;
+  top: 6.4em;
+  left: 20.1em;
+
+  padding-left: 10px;
+  background-color: #fff;
+}
+.top-control[_ngcontent-pbk-c106]   ul[_ngcontent-pbk-c106] {
+  height: 4em;
+}
+.top-control[_ngcontent-pbk-c106]   li[_ngcontent-pbk-c106] {
+  line-height: 4em;
+  width: 10.5em;
+  border-top: solid 0.1em rgb(240, 240, 240);
+  border-right: solid 0.1em rgb(240, 240, 240);
+  font-size: 1em;
+  color: rgb(36, 146, 255);
+}
+.top-control[_ngcontent-pbk-c106]   div[_ngcontent-pbk-c106] {
+  width: 3.2em;
+  height: 4em;
+  background-color: rgb(199, 214, 221);
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhvbWUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHlCQUF5QjtFQUN6QixVQUFVO0VBQ1YsV0FBVztFQUNYLGFBQWE7RUFDYixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxVQUFVO0VBQ1YsZUFBZTtFQUNmLFlBQVk7RUFDWixVQUFVO0FBQ1o7QUFFQSxTQUFTO0FBRVQ7RUFDRSxzQkFBc0I7RUFDdEIsV0FBVztFQUNYLFdBQVc7RUFDWCxVQUFVO0VBQ1YsZUFBZTtFQUNmLGNBQWM7RUFDZCxrQkFBa0I7RUFDbEIsMkJBQTJCO0VBQzNCLFlBQVk7RUFDWixvQ0FBb0M7QUFDdEM7QUFDQTtFQUNFLHlCQUF5QjtBQUMzQjtBQUVBO0VBQ0UsWUFBWTtFQUNaLFlBQVk7O0VBRVosa0JBQWtCO0VBQ2xCLGdDQUFpRDtFQUNqRCwwQkFBMEI7RUFDMUIsNkJBQTZCO0VBQzdCLDRCQUE0QjtFQUM1QixXQUFXO0VBQ1gsbUJBQW1CO0FBQ3JCO0FBRUE7RUFDRSxXQUFXO0VBQ1gsZ0JBQWdCO0FBQ2xCO0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7QUFFQTtFQUNFLFlBQVk7RUFDWixlQUFlO0FBQ2pCO0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsV0FBVztFQUNYLFlBQVk7RUFDWixvQkFBb0I7RUFDcEIsK0JBQStCO0VBQy9CLDJCQUEyQjtBQUM3QjtBQUVBO0VBQ0UsY0FBYztBQUNoQjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGFBQWE7RUFDYixpQkFBaUI7QUFDbkI7QUFDQSxVQUFVO0FBQ1Y7RUFDRSxlQUFlO0VBQ2YsVUFBVTtFQUNWLGFBQWE7RUFDYiw4QkFBOEI7RUFDOUIsYUFBYTtFQUNiLFdBQVc7RUFDWCxVQUFVO0VBQ1YsWUFBWTs7RUFFWixrQkFBa0I7RUFDbEIsc0JBQXNCO0FBQ3hCO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixhQUFhO0VBQ2IsMENBQTBDO0VBQzFDLDRDQUE0QztFQUM1QyxjQUFjO0VBQ2Qsd0JBQXdCO0FBQzFCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osV0FBVztFQUNYLG9DQUFvQztBQUN0QyIsImZpbGUiOiJob21lLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudG9wLWJhciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzRlOTdkOTtcclxuICB6LWluZGV4OiAxO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogNi40ZW07XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG59XHJcbi5sZWZ0LWJhciB7XHJcbiAgei1pbmRleDogOTtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIHRvcDogNi40ZW07XHJcbn1cclxuXHJcbi8q5YaF5a655biD5bGA5o6n5Yi2Ki9cclxuXHJcbi5jb250ZW50LWNvbnRyb2wge1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgdG9wOiAxMC40ZW07XHJcbiAgbGVmdDogMjJlbTtcclxuICBwYWRkaW5nLWxlZnQ6IDA7XHJcbiAgcGFkZGluZy10b3A6IDA7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIC8qIGJhY2tncm91bmQtY29sb3I6IHJlZDsgKi9cclxuICBoZWlnaHQ6IGF1dG87XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDI0MSwgMjQ0LCAyNDUpO1xyXG59XHJcbi5oZWFkZXItbWVudSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzRlOTdkOTtcclxufVxyXG5cclxuLmxvZ28ge1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBoZWlnaHQ6IDEwMCU7XHJcblxyXG4gIG1hcmdpbi1yaWdodDogMzBweDtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIuLi8uLi9hc3NldHMvaW1nL3UyMC5wbmdcIik7XHJcbiAgYmFja2dyb3VuZC1zaXplOiA0MHB4IDQwcHg7XHJcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogMHB4IDEycHg7XHJcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICBmbG9hdDogbGVmdDtcclxuICBwYWRkaW5nLWxlZnQ6IDQuNWVtO1xyXG59XHJcblxyXG4ubG9nbyBzcGFuIHtcclxuICBjb2xvcjogI2ZmZjtcclxuICBmb250LXNpemU6IDEuN2VtO1xyXG59XHJcblxyXG4uaGVhZGVyLW1lbnUge1xyXG4gIGxpbmUtaGVpZ2h0OiA2NHB4O1xyXG59XHJcblxyXG4uc2lkZXItbWVudSB7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIGJvcmRlci1yaWdodDogMDtcclxufVxyXG5cclxuLmlubmVyLWxheW91dCB7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogYXV0bztcclxuICBwYWRkaW5nOiAwIDIwcHggMjBweDtcclxuICAvKiBiYWNrZ3JvdW5kLWNvbG9yOiAjZjFmNGY1OyAqL1xyXG4gIC8qIGJhY2tncm91bmQtY29sb3I6IGZmZjsgKi9cclxufVxyXG5cclxubnotYnJlYWRjcnVtYiB7XHJcbiAgbWFyZ2luOiAxNnB4IDA7XHJcbn1cclxubnotY29udGVudCB7XHJcbiAgYmFja2dyb3VuZDogI2ZmZjtcclxuICBwYWRkaW5nOiAyNHB4O1xyXG4gIG1pbi1oZWlnaHQ6IDI4MHB4O1xyXG59XHJcbi8qIOWktOmDqOaOp+WItuagjyAqL1xyXG4udG9wLWNvbnRyb2wge1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICB6LWluZGV4OiAxO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xyXG4gIHdpZHRoOiAxNzAwcHg7XHJcbiAgaGVpZ2h0OiA0ZW07XHJcbiAgdG9wOiA2LjRlbTtcclxuICBsZWZ0OiAyMC4xZW07XHJcblxyXG4gIHBhZGRpbmctbGVmdDogMTBweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmO1xyXG59XHJcbi50b3AtY29udHJvbCB1bCB7XHJcbiAgaGVpZ2h0OiA0ZW07XHJcbn1cclxuLnRvcC1jb250cm9sIGxpIHtcclxuICBsaW5lLWhlaWdodDogNGVtO1xyXG4gIHdpZHRoOiAxMC41ZW07XHJcbiAgYm9yZGVyLXRvcDogc29saWQgMC4xZW0gcmdiKDI0MCwgMjQwLCAyNDApO1xyXG4gIGJvcmRlci1yaWdodDogc29saWQgMC4xZW0gcmdiKDI0MCwgMjQwLCAyNDApO1xyXG4gIGZvbnQtc2l6ZTogMWVtO1xyXG4gIGNvbG9yOiByZ2IoMzYsIDE0NiwgMjU1KTtcclxufVxyXG4udG9wLWNvbnRyb2wgZGl2IHtcclxuICB3aWR0aDogMy4yZW07XHJcbiAgaGVpZ2h0OiA0ZW07XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDE5OSwgMjE0LCAyMjEpO1xyXG59XHJcbiJdfQ== */</style><style type="text/css"></style><style>.product-content[_ngcontent-pbk-c213] {
+  width: 1650px;
+}
+app-head-text[_ngcontent-pbk-c213] {
+  line-height: 3.3em;
+  font-size: 1.2em;
+}
+.body-add[_ngcontent-pbk-c213] {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+}
+[nz-form][_ngcontent-pbk-c213] {
+  max-width: 600px;
+}
+.phone-select[_ngcontent-pbk-c213] {
+  width: 70px;
+}
+.register-are[_ngcontent-pbk-c213] {
+  margin-bottom: 8px;
+}
+.body-add[_ngcontent-pbk-c213]   i[_ngcontent-pbk-c213] {
+  color: red;
+  font-size: 1.2em;
+  margin: 0 1.5em;
+}
+.up-loader[_ngcontent-pbk-c213] {
+  margin-top: 35px;
+  width: 80px;
+}
+.up-loader[_ngcontent-pbk-c213]   button[_ngcontent-pbk-c213] {
+  width: 100%;
+  height: 100%;
+}
+.product-size[_ngcontent-pbk-c213] {
+  margin-top: 9px;
+  margin-left: 7px;
+  display: flex;
+  line-height: 90px;
+}
+.product-size[_ngcontent-pbk-c213]   .text[_ngcontent-pbk-c213] {
+  box-sizing: border-box;
+  padding-top: 8px;
+  height: 102px;
+  font-size: 1.4em;
+  margin-left: 25px;
+  width: 90px;
+}
+
+.foot-control[_ngcontent-pbk-c213] {
+  margin-left: 25px;
+}
+.body[_ngcontent-pbk-c213]   input[_ngcontent-pbk-c213] {
+  border: 0.1em rgb(222, 222, 222) solid;
+  height: 30px;
+}
+.body[_ngcontent-pbk-c213]   input[_ngcontent-pbk-c213]:hover {
+  border: 1px solid rgb(64, 169, 255);
+  transition: 1s;
+}
+.body[_ngcontent-pbk-c213]   input[_ngcontent-pbk-c213]:focus {
+  outline: none;
+  border: 1px solid rgb(64, 169, 255);
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFkZC1wcm9kdWN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0FBQ2Y7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0I7QUFDbEI7QUFFQTtFQUNFLFdBQVc7RUFDWCxZQUFZO0VBQ1osc0JBQXNCO0FBQ3hCO0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7QUFFQTtFQUNFLFdBQVc7QUFDYjtBQUVBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxVQUFVO0VBQ1YsZ0JBQWdCO0VBQ2hCLGVBQWU7QUFDakI7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixXQUFXO0FBQ2I7QUFDQTtFQUNFLFdBQVc7RUFDWCxZQUFZO0FBQ2Q7QUFFQTtFQUNFLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsYUFBYTtFQUNiLGlCQUFpQjtBQUNuQjtBQUVBO0VBQ0Usc0JBQXNCO0VBQ3RCLGdCQUFnQjtFQUNoQixhQUFhO0VBQ2IsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixXQUFXO0FBQ2I7QUFFQSxVQUFVO0FBQ1Y7RUFDRSxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLHNDQUFzQztFQUN0QyxZQUFZO0FBQ2Q7QUFDQTtFQUNFLG1DQUFtQztFQUNuQyxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxhQUFhO0VBQ2IsbUNBQW1DO0FBQ3JDIiwiZmlsZSI6ImFkZC1wcm9kdWN0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucHJvZHVjdC1jb250ZW50IHtcclxuICB3aWR0aDogMTY1MHB4O1xyXG59XHJcbmFwcC1oZWFkLXRleHQge1xyXG4gIGxpbmUtaGVpZ2h0OiAzLjNlbTtcclxuICBmb250LXNpemU6IDEuMmVtO1xyXG59XHJcblxyXG4uYm9keS1hZGQge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogYXV0bztcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmO1xyXG59XHJcblxyXG5bbnotZm9ybV0ge1xyXG4gIG1heC13aWR0aDogNjAwcHg7XHJcbn1cclxuXHJcbi5waG9uZS1zZWxlY3Qge1xyXG4gIHdpZHRoOiA3MHB4O1xyXG59XHJcblxyXG4ucmVnaXN0ZXItYXJlIHtcclxuICBtYXJnaW4tYm90dG9tOiA4cHg7XHJcbn1cclxuXHJcbi5ib2R5LWFkZCBpIHtcclxuICBjb2xvcjogcmVkO1xyXG4gIGZvbnQtc2l6ZTogMS4yZW07XHJcbiAgbWFyZ2luOiAwIDEuNWVtO1xyXG59XHJcblxyXG4udXAtbG9hZGVyIHtcclxuICBtYXJnaW4tdG9wOiAzNXB4O1xyXG4gIHdpZHRoOiA4MHB4O1xyXG59XHJcbi51cC1sb2FkZXIgYnV0dG9uIHtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuXHJcbi5wcm9kdWN0LXNpemUge1xyXG4gIG1hcmdpbi10b3A6IDlweDtcclxuICBtYXJnaW4tbGVmdDogN3B4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgbGluZS1oZWlnaHQ6IDkwcHg7XHJcbn1cclxuXHJcbi5wcm9kdWN0LXNpemUgLnRleHQge1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgcGFkZGluZy10b3A6IDhweDtcclxuICBoZWlnaHQ6IDEwMnB4O1xyXG4gIGZvbnQtc2l6ZTogMS40ZW07XHJcbiAgbWFyZ2luLWxlZnQ6IDI1cHg7XHJcbiAgd2lkdGg6IDkwcHg7XHJcbn1cclxuXHJcbi8qIOW6lemDqOWvvOiIquagjyAqL1xyXG4uZm9vdC1jb250cm9sIHtcclxuICBtYXJnaW4tbGVmdDogMjVweDtcclxufVxyXG4uYm9keSBpbnB1dCB7XHJcbiAgYm9yZGVyOiAwLjFlbSByZ2IoMjIyLCAyMjIsIDIyMikgc29saWQ7XHJcbiAgaGVpZ2h0OiAzMHB4O1xyXG59XHJcbi5ib2R5IGlucHV0OmhvdmVyIHtcclxuICBib3JkZXI6IDFweCBzb2xpZCByZ2IoNjQsIDE2OSwgMjU1KTtcclxuICB0cmFuc2l0aW9uOiAxcztcclxufVxyXG4uYm9keSBpbnB1dDpmb2N1cyB7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3JkZXI6IDFweCBzb2xpZCByZ2IoNjQsIDE2OSwgMjU1KTtcclxufVxyXG4iXX0= */</style><style>.head[_ngcontent-pbk-c108] {
+  display: flex;
+  width: 100%;
+  height: 3.3em;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.head[_ngcontent-pbk-c108]   .text[_ngcontent-pbk-c108], .head[_ngcontent-pbk-c108]   .right[_ngcontent-pbk-c108] {
+  font-size: 1.5em;
+}
+
+.right[_ngcontent-pbk-c108]   p[_ngcontent-pbk-c108] {
+  font-size: 11em;
+}
+
+.panel[_ngcontent-pbk-c108] {
+  height: 100%;
+  background: #000;
+  color: #fff;
+  width: 100%;
+  width: calc(100vh - 200px);
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhlYWQtdGV4dC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtFQUNiLFdBQVc7RUFDWCxhQUFhO0VBQ2IsOEJBQThCO0VBQzlCLGtCQUFrQjtBQUNwQjs7QUFFQTs7RUFFRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixXQUFXO0VBQ1gsV0FBVztFQUNYLDBCQUEwQjtBQUM1QiIsImZpbGUiOiJoZWFkLXRleHQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5oZWFkIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMy4zZW07XHJcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xyXG4gIG1hcmdpbi1ib3R0b206IDFlbTtcclxufVxyXG5cclxuLmhlYWQgLnRleHQsXHJcbi5oZWFkIC5yaWdodCB7XHJcbiAgZm9udC1zaXplOiAxLjVlbTtcclxufVxyXG5cclxuLnJpZ2h0IHAge1xyXG4gIGZvbnQtc2l6ZTogMTFlbTtcclxufVxyXG5cclxuLnBhbmVsIHtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgYmFja2dyb3VuZDogIzAwMDtcclxuICBjb2xvcjogI2ZmZjtcclxuICB3aWR0aDogMTAwJTtcclxuICB3aWR0aDogY2FsYygxMDB2aCAtIDIwMHB4KTtcclxufVxyXG4iXX0= */</style><style>.product-params[_ngcontent-pbk-c211] {
+  flex-direction: column;
+  font-size: 1.3em;
+  display: flex;
+  width: 100%;
+  border: solid 1px rgba(222, 222, 222);
+}
+.product-params[_ngcontent-pbk-c211]   .top[_ngcontent-pbk-c211] {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  line-height: 37px;
+  background-color: rgb(241, 244, 245);
+}
+.top[_ngcontent-pbk-c211]   td[_ngcontent-pbk-c211] {
+  margin: 0 20px;
+}
+.product-params[_ngcontent-pbk-c211]   .foot[_ngcontent-pbk-c211] {
+  box-sizing: border-box;
+  line-height: 37px;
+
+  display: flex;
+  text-align: center;
+  border-top: 0.1em rgb(222, 222, 222) solid;
+  background-color: #fff;
+}
+.foot[_ngcontent-pbk-c211]   td[_ngcontent-pbk-c211] {
+  border-right: 0.1em solid rgb(222, 222, 222);
+}
+.foot[_ngcontent-pbk-c211]   input[_ngcontent-pbk-c211] {
+  border: 0.1em rgb(222, 222, 222) solid;
+  height: 30px;
+}
+.foot[_ngcontent-pbk-c211]   input[_ngcontent-pbk-c211]:hover {
+  border: 1px solid rgb(64, 169, 255);
+  transition: 1s;
+}
+.foot[_ngcontent-pbk-c211]   input[_ngcontent-pbk-c211]:focus {
+  outline: none;
+  border: 1px solid rgb(64, 169, 255);
+}
+.footbtn[_ngcontent-pbk-c211] {
+  padding-top: 8px;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hbnVhbC1tb2RlbC1jb25maWcuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHNCQUFzQjtFQUN0QixnQkFBZ0I7RUFDaEIsYUFBYTtFQUNiLFdBQVc7RUFDWCxxQ0FBcUM7QUFDdkM7QUFDQTtFQUNFLHNCQUFzQjtFQUN0QixXQUFXO0VBQ1gsYUFBYTtFQUNiLDhCQUE4QjtFQUM5QixpQkFBaUI7RUFDakIsb0NBQW9DO0FBQ3RDO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsaUJBQWlCOztFQUVqQixhQUFhO0VBQ2Isa0JBQWtCO0VBQ2xCLDBDQUEwQztFQUMxQyxzQkFBc0I7QUFDeEI7QUFFQTtFQUNFLDRDQUE0QztBQUM5QztBQUVBO0VBQ0Usc0NBQXNDO0VBQ3RDLFlBQVk7QUFDZDtBQUNBO0VBQ0UsbUNBQW1DO0VBQ25DLGNBQWM7QUFDaEI7QUFDQTtFQUNFLGFBQWE7RUFDYixtQ0FBbUM7QUFDckM7QUFDQTtFQUNFLGdCQUFnQjtBQUNsQiIsImZpbGUiOiJtYW51YWwtbW9kZWwtY29uZmlnLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucHJvZHVjdC1wYXJhbXMge1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgZm9udC1zaXplOiAxLjNlbTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGJvcmRlcjogc29saWQgMXB4IHJnYmEoMjIyLCAyMjIsIDIyMik7XHJcbn1cclxuLnByb2R1Y3QtcGFyYW1zIC50b3Age1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbiAgbGluZS1oZWlnaHQ6IDM3cHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDI0MSwgMjQ0LCAyNDUpO1xyXG59XHJcbi50b3AgdGQge1xyXG4gIG1hcmdpbjogMCAyMHB4O1xyXG59XHJcbi5wcm9kdWN0LXBhcmFtcyAuZm9vdCB7XHJcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICBsaW5lLWhlaWdodDogMzdweDtcclxuXHJcbiAgZGlzcGxheTogZmxleDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgYm9yZGVyLXRvcDogMC4xZW0gcmdiKDIyMiwgMjIyLCAyMjIpIHNvbGlkO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNmZmY7XHJcbn1cclxuXHJcbi5mb290IHRkIHtcclxuICBib3JkZXItcmlnaHQ6IDAuMWVtIHNvbGlkIHJnYigyMjIsIDIyMiwgMjIyKTtcclxufVxyXG5cclxuLmZvb3QgaW5wdXQge1xyXG4gIGJvcmRlcjogMC4xZW0gcmdiKDIyMiwgMjIyLCAyMjIpIHNvbGlkO1xyXG4gIGhlaWdodDogMzBweDtcclxufVxyXG4uZm9vdCBpbnB1dDpob3ZlciB7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiKDY0LCAxNjksIDI1NSk7XHJcbiAgdHJhbnNpdGlvbjogMXM7XHJcbn1cclxuLmZvb3QgaW5wdXQ6Zm9jdXMge1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiKDY0LCAxNjksIDI1NSk7XHJcbn1cclxuLmZvb3RidG4ge1xyXG4gIHBhZGRpbmctdG9wOiA4cHg7XHJcbn1cclxuIl19 */</style><style>.content[_ngcontent-pbk-c212] {
+  width: 427px;
+}
+
+.top[_ngcontent-pbk-c212] {
+  width: 100%;
+}
+
+label[_ngcontent-pbk-c212]::before {
+  content: "*";
+  width: 10px;
+  height: 10px;
+  line-height: 10px;
+  color: red;
+  text-align: center;
+  box-sizing: border-box;
+  float: left;
+  margin-top: 7px;
+}
+
+.content[_ngcontent-pbk-c212] {
+  width: 900px;
+}
+
+  .manual-model-modal {
+  width: 800px;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hbnVhbC1tb2RlbC1tb2RhbC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsV0FBVztBQUNiOztBQUNBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxZQUFZO0VBQ1osaUJBQWlCO0VBQ2pCLFVBQVU7RUFDVixrQkFBa0I7RUFDbEIsc0JBQXNCO0VBQ3RCLFdBQVc7RUFDWCxlQUFlO0FBQ2pCOztBQUNBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsWUFBWTtBQUNkIiwiZmlsZSI6Im1hbnVhbC1tb2RlbC1tb2RhbC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRlbnQge1xyXG4gIHdpZHRoOiA0MjdweDtcclxufVxyXG5cclxuLnRvcCB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxubGFiZWw6OmJlZm9yZSB7XHJcbiAgY29udGVudDogXCIqXCI7XHJcbiAgd2lkdGg6IDEwcHg7XHJcbiAgaGVpZ2h0OiAxMHB4O1xyXG4gIGxpbmUtaGVpZ2h0OiAxMHB4O1xyXG4gIGNvbG9yOiByZWQ7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgZmxvYXQ6IGxlZnQ7XHJcbiAgbWFyZ2luLXRvcDogN3B4O1xyXG59XHJcbi5jb250ZW50IHtcclxuICB3aWR0aDogOTAwcHg7XHJcbn1cclxuXHJcbj4+PiAubWFudWFsLW1vZGVsLW1vZGFsIHtcclxuICB3aWR0aDogODAwcHg7XHJcbn1cclxuIl19 */</style></head>
+  <body>
+    <app-root _nghost-pbk-c107="" ng-version="12.2.13"><app-home _ngcontent-pbk-c107="" _nghost-pbk-c106=""><nz-layout _ngcontent-pbk-c106="" class="ant-layout"><nz-header _ngcontent-pbk-c106="" class="top-bar ant-layout-header"><div _ngcontent-pbk-c106="" class="logo"><span _ngcontent-pbk-c106="">综合管理平台</span></div><ul _ngcontent-pbk-c106="" nz-menu="" nztheme="dark" nzmode="horizontal" class="header-menu ant-menu ant-menu-root ant-menu-dark ant-menu-horizontal" ng-reflect-nz-theme="dark" ng-reflect-nz-mode="horizontal"><li _ngcontent-pbk-c106="" nz-menu-item="" nzselected="" ng-reflect-nz-selected="" class="ant-menu-item ant-menu-item-selected">产品管理</li><li _ngcontent-pbk-c106="" nz-menu-item="" class="ant-menu-item">系统管理</li></ul></nz-header><nz-layout _ngcontent-pbk-c106="" class="ant-layout ant-layout-has-sider"><nz-sider _ngcontent-pbk-c106="" nzwidth="200px" nztheme="light" class="left-bar ant-layout-sider ant-layout-sider-light" ng-reflect-nz-width="200px" ng-reflect-nz-theme="light" style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"><div class="ant-layout-sider-children"><ul _ngcontent-pbk-c106="" nz-menu="" nzmode="inline" class="sider-menu ant-menu ant-menu-root ant-menu-light ant-menu-inline" ng-reflect-nz-mode="inline"><li _ngcontent-pbk-c106="" nz-submenu="" nzopen="" nzicon="user" nztitle="产品手册" ng-reflect-nz-open="" ng-reflect-nz-icon="user" ng-reflect-nz-title="产品手册" class="ant-menu-submenu ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu-inline ant-menu-submenu-active"><div nz-submenu-title="" cdkoverlayorigin="" ng-reflect-nz-icon="user" ng-reflect-nz-title="产品手册" ng-reflect-mode="inline" ng-reflect-nz-disabled="false" ng-reflect-is-menu-inside-drop-down="false" ng-reflect-padding-left="24" class="ant-menu-submenu-title" style="padding-left: 24px;"><i nz-icon="" ng-reflect-nz-type="user" class="anticon anticon-user ng-star-inserted"><svg viewBox="64 64 896 896" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="user" aria-hidden="true"><path d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path></svg></i><!--bindings={
+  "ng-reflect-ng-if": "user"
+}--><span class="ng-star-inserted">产品手册</span><!--ng-container--><!--bindings={
+  "ng-reflect-nz-string-template-outlet": "产品手册"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><i class="ant-menu-submenu-arrow ng-star-inserted"></i><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></div><div nz-submenu-inline-child="" class="ng-tns-c38-0 ant-menu ant-menu-inline ant-menu-sub ng-trigger ng-trigger-collapseMotion ng-star-inserted" ng-reflect-mode="inline" ng-reflect-nz-open="true" ng-reflect-menu-class="" ng-reflect-template-outlet="[object Object]"><ul _ngcontent-pbk-c106="" class="ng-star-inserted" style=""><li _ngcontent-pbk-c106="" nz-menu-item="" nzselected="" ng-reflect-nz-selected="" class="ant-menu-item ant-menu-item-selected" style="padding-left: 48px;"><a _ngcontent-pbk-c106="" routerlink="product" ng-reflect-router-link="product" href="http://localhost:4200/product">手册列表</a></li><li _ngcontent-pbk-c106="" nz-menu-item="" class="ant-menu-item" style="padding-left: 48px;"><a _ngcontent-pbk-c106="" routerlink="detail" ng-reflect-router-link="detail" href="http://localhost:4200/detail">商品详情</a></li></ul><!--bindings={
+  "ng-reflect-ng-template-outlet": "[object Object]"
+}--></div><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--><!--container--></li><li _ngcontent-pbk-c106="" nz-submenu="" nztitle="产品中心" nzicon="laptop" ng-reflect-nz-title="产品中心" ng-reflect-nz-icon="laptop" class="ant-menu-submenu ant-menu-submenu-inline"><div nz-submenu-title="" cdkoverlayorigin="" ng-reflect-nz-icon="laptop" ng-reflect-nz-title="产品中心" ng-reflect-mode="inline" ng-reflect-nz-disabled="false" ng-reflect-is-menu-inside-drop-down="false" ng-reflect-padding-left="24" class="ant-menu-submenu-title" style="padding-left: 24px;"><i nz-icon="" ng-reflect-nz-type="laptop" class="anticon anticon-laptop ng-star-inserted"><svg viewBox="64 64 896 896" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="laptop" aria-hidden="true"><path d="M956.9 845.1L896.4 632V168c0-17.7-14.3-32-32-32h-704c-17.7 0-32 14.3-32 32v464L67.9 845.1C60.4 866 75.8 888 98 888h828.8c22.2 0 37.6-22 30.1-42.9zM200.4 208h624v395h-624V208zm228.3 608l8.1-37h150.3l8.1 37H428.7zm224 0l-19.1-86.7c-.8-3.7-4.1-6.3-7.8-6.3H398.2c-3.8 0-7 2.6-7.8 6.3L371.3 816H151l42.3-149h638.2l42.3 149H652.7z"></path></svg></i><!--bindings={
+  "ng-reflect-ng-if": "laptop"
+}--><span class="ng-star-inserted">产品中心</span><!--ng-container--><!--bindings={
+  "ng-reflect-nz-string-template-outlet": "产品中心"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><i class="ant-menu-submenu-arrow ng-star-inserted"></i><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></div><div nz-submenu-inline-child="" class="ng-tns-c38-1 ant-menu ant-menu-inline ant-menu-sub ng-trigger ng-trigger-collapseMotion ng-star-inserted" ng-reflect-mode="inline" ng-reflect-nz-open="false" ng-reflect-menu-class="" ng-reflect-template-outlet="[object Object]" style="height: 0px; overflow: hidden;"><ul _ngcontent-pbk-c106="" class="ng-star-inserted" style=""><li _ngcontent-pbk-c106="" nz-menu-item="" class="ant-menu-item" style="padding-left: 48px;"><a _ngcontent-pbk-c106="" routerlink="productCenter" ng-reflect-router-link="productCenter" href="http://localhost:4200/productCenter">产品列表</a></li></ul><!--bindings={
+  "ng-reflect-ng-template-outlet": "[object Object]"
+}--></div><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--><!--container--></li><li _ngcontent-pbk-c106="" nz-submenu="" nztitle="subnav 3" nzicon="notification" ng-reflect-nz-title="subnav 3" ng-reflect-nz-icon="notification" class="ant-menu-submenu ant-menu-submenu-inline"><div nz-submenu-title="" cdkoverlayorigin="" ng-reflect-nz-icon="notification" ng-reflect-nz-title="subnav 3" ng-reflect-mode="inline" ng-reflect-nz-disabled="false" ng-reflect-is-menu-inside-drop-down="false" ng-reflect-padding-left="24" class="ant-menu-submenu-title" style="padding-left: 24px;"><i nz-icon="" ng-reflect-nz-type="notification" class="anticon anticon-notification ng-star-inserted"><svg viewBox="64 64 896 896" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="notification" aria-hidden="true"><path d="M880 112c-3.8 0-7.7.7-11.6 2.3L292 345.9H128c-8.8 0-16 7.4-16 16.6v299c0 9.2 7.2 16.6 16 16.6h101.7c-3.7 11.6-5.7 23.9-5.7 36.4 0 65.9 53.8 119.5 120 119.5 55.4 0 102.1-37.6 115.9-88.4l408.6 164.2c3.9 1.5 7.8 2.3 11.6 2.3 16.9 0 32-14.2 32-33.2V145.2C912 126.2 897 112 880 112zM344 762.3c-26.5 0-48-21.4-48-47.8 0-11.2 3.9-21.9 11-30.4l84.9 34.1c-2 24.6-22.7 44.1-47.9 44.1zm496 58.4L318.8 611.3l-12.9-5.2H184V417.9h121.9l12.9-5.2L840 203.3v617.4z"></path></svg></i><!--bindings={
+  "ng-reflect-ng-if": "notification"
+}--><span class="ng-star-inserted">subnav 3</span><!--ng-container--><!--bindings={
+  "ng-reflect-nz-string-template-outlet": "subnav 3"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><i class="ant-menu-submenu-arrow ng-star-inserted"></i><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></div><div nz-submenu-inline-child="" class="ng-tns-c38-2 ant-menu ant-menu-inline ant-menu-sub ng-trigger ng-trigger-collapseMotion ng-star-inserted" ng-reflect-mode="inline" ng-reflect-nz-open="false" ng-reflect-menu-class="" ng-reflect-template-outlet="[object Object]" style="height: 0px; overflow: hidden;"><ul _ngcontent-pbk-c106="" class="ng-star-inserted" style=""><li _ngcontent-pbk-c106="" nz-menu-item="" class="ant-menu-item" style="padding-left: 48px;">option9</li><li _ngcontent-pbk-c106="" nz-menu-item="" class="ant-menu-item" style="padding-left: 48px;">option10</li><li _ngcontent-pbk-c106="" nz-menu-item="" class="ant-menu-item" style="padding-left: 48px;">option11</li><li _ngcontent-pbk-c106="" nz-menu-item="" class="ant-menu-item" style="padding-left: 48px;">option12</li></ul><!--bindings={
+  "ng-reflect-ng-template-outlet": "[object Object]"
+}--></div><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--><!--container--></li></ul></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></nz-sider><nz-layout _ngcontent-pbk-c106="" class="inner-layout ant-layout"><div _ngcontent-pbk-c106="" class="top-control"><nz-tabset _ngcontent-pbk-c106="" class="ant-tabs ant-tabs-top ant-tabs-default"><nz-tabs-nav role="tablist" class="ant-tabs-nav ng-star-inserted" ng-reflect-selected-index="0" ng-reflect-ink-bar-animated="true" ng-reflect-addable="false" ng-reflect-add-icon="plus" ng-reflect-hide-bar="false" ng-reflect-position="horizontal"><div class="ant-tabs-nav-wrap"><div nztabscrolllist="" class="ant-tabs-nav-list" style="transform: translate(0px, 0px);"><div class="ant-tabs-tab ant-tabs-tab-active ng-star-inserted"><div role="tab" nztabnavitem="" cdkmonitorelementfocus="" class="ant-tabs-tab-btn" ng-reflect-disabled="false" ng-reflect-tab="[object Object]" ng-reflect-active="true" tabindex="0" aria-disabled="false" aria-selected="true" aria-controls="nz-tabs-0-tab-0">Tab 1<!--ng-container--><!--bindings={
+  "ng-reflect-nz-string-template-outlet-context": "[object Object]"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div></div><div class="ant-tabs-tab ng-star-inserted"><div role="tab" nztabnavitem="" cdkmonitorelementfocus="" class="ant-tabs-tab-btn" ng-reflect-disabled="false" ng-reflect-tab="[object Object]" ng-reflect-active="false" tabindex="-1" aria-disabled="false" aria-selected="false" aria-controls="nz-tabs-0-tab-1">Tab 2<!--ng-container--><!--bindings={
+  "ng-reflect-nz-string-template-outlet-context": "[object Object]"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><div nz-tabs-ink-bar="" class="ant-tabs-ink-bar ant-tabs-ink-bar-animated" ng-reflect-position="horizontal" ng-reflect-animated="true" style="left: 0px; width: 33px;"></div></div></div><nz-tab-nav-operation class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden" ng-reflect-add-icon="plus" ng-reflect-addable="false" ng-reflect-items=""><button nz-dropdown="" type="button" tabindex="-1" aria-hidden="true" nzoverlayclassname="nz-tabs-dropdown" class="ant-tabs-nav-more ant-dropdown-trigger" ng-reflect-nz-overlay-class-name="nz-tabs-dropdown" ng-reflect-nz-dropdown-menu="[object Object]" ng-reflect-nz-overlay-style="[object Object]"><i nz-icon="" nztype="ellipsis" ng-reflect-nz-type="ellipsis" class="anticon anticon-ellipsis"><svg viewBox="64 64 896 896" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="ellipsis" aria-hidden="true"><path d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"></path></svg></i></button><!--container--><!--container--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></nz-tab-nav-operation><!--bindings={}--></nz-tabs-nav><!--bindings={
+  "ng-reflect-ng-if": "2"
+}--><div class="ant-tabs-content-holder"><div class="ant-tabs-content ant-tabs-content-top ant-tabs-content-animated" style="margin-left: 0%;"><div nz-tab-body="" class="ant-tabs-tabpane ant-tabs-tabpane-active ng-star-inserted" ng-reflect-active="true" ng-reflect-content="[object Object]" ng-reflect-force-render="false" ng-reflect-tab-pane-animated="true" tabindex="0" aria-hidden="false">Content of Tab 1<!--bindings={
+  "ng-reflect-ng-template-outlet": "[object Object]"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></div><div nz-tab-body="" class="ant-tabs-tabpane ng-star-inserted" ng-reflect-active="false" ng-reflect-content="[object Object]" ng-reflect-force-render="false" ng-reflect-tab-pane-animated="true" tabindex="-1" aria-hidden="true" style="visibility: hidden; height: 0px;"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div></nz-tabset><div _ngcontent-pbk-c106=""></div></div><nz-content _ngcontent-pbk-c106="" class="content-control ant-layout-content"><router-outlet _ngcontent-pbk-c106=""></router-outlet><app-add-product _nghost-pbk-c213="" class="ng-star-inserted"><div _ngcontent-pbk-c213="" class="product-content"><app-head-text _ngcontent-pbk-c213="" _nghost-pbk-c108=""><div _ngcontent-pbk-c108="" class="head"><div _ngcontent-pbk-c108="" class="text"><span _ngcontent-pbk-c213="" left="">新增手册</span></div><div _ngcontent-pbk-c108="" class="right"></div></div></app-head-text><div _ngcontent-pbk-c213="" class="body-add"><form _ngcontent-pbk-c213="" novalidate="" nz-form="" class="body ant-form ng-untouched ng-pristine ng-valid ant-form-horizontal"><nz-form-item _ngcontent-pbk-c213="" class="ant-form-item ant-row"><i _ngcontent-pbk-c213="">*</i><nz-form-label _ngcontent-pbk-c213="" nzfor="email" class="ant-form-item-label ant-col" ng-reflect-nz-for="email"><label for="email">产品分类<!--bindings={}--></label></nz-form-label><nz-form-control _ngcontent-pbk-c213="" class="ng-tns-c125-4 ant-form-item-control ant-col ng-star-inserted"><div class="ant-form-item-control-input ng-tns-c125-4"><div class="ant-form-item-control-input-content ng-tns-c125-4"><nz-select _ngcontent-pbk-c213="" nzallowclear="" nzshowsearch="" nzplaceholder="请选择产品分类" name="productCode" class="ng-tns-c138-5 ant-select ng-tns-c125-4 ant-select-show-arrow ant-select-show-search ant-select-allow-clear ant-select-single ng-untouched ng-pristine ng-valid ng-star-inserted" ng-reflect-nz-allow-clear="" ng-reflect-nz-show-search="" ng-reflect-nz-place-holder="请选择产品分类" ng-reflect-name="productCode"><nz-select-top-control cdkoverlayorigin="" class="ng-tns-c138-5 ant-select-selector" ng-reflect-open="false" ng-reflect-disabled="false" ng-reflect-mode="default" ng-reflect-place-holder="请选择产品分类" ng-reflect-max-tag-count="Infinity" ng-reflect-token-separators="" ng-reflect-show-search="true" ng-reflect-autofocus="false" ng-reflect-list-of-top-item=""><nz-select-search class="ant-select-selection-search ng-star-inserted" ng-reflect-disabled="false" ng-reflect-show-input="true" ng-reflect-mirror-sync="false" ng-reflect-autofocus="false" ng-reflect-focus-trigger="false"><input autocomplete="off" class="ant-select-selection-search-input ng-untouched ng-pristine ng-valid" ng-reflect-is-disabled="false"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></nz-select-search><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-switch-case": "default"
+}--><!--container--><!--ng-container--><nz-select-placeholder class="ant-select-selection-placeholder ng-star-inserted" ng-reflect-placeholder="请选择产品分类"> 请选择产品分类 <!--ng-container--><!--bindings={
+  "ng-reflect-nz-string-template-outlet": "请选择产品分类"
+}--></nz-select-placeholder><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></nz-select-top-control><nz-select-arrow class="ant-select-arrow ng-tns-c138-5 ng-star-inserted" ng-reflect-loading="false" ng-reflect-search="false"><i nz-icon="" nztype="down" ng-reflect-nz-type="down" class="anticon anticon-down ng-star-inserted"><svg viewBox="64 64 896 896" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="down" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg></i><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></nz-select-arrow><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-if": "0"
+}--><!--bindings={
+  "ng-reflect-open": "false"
+}--></nz-select></div><span class="ant-form-item-children-icon ng-tns-c125-4"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></span></div><!--bindings={
+  "ng-reflect-ng-if": null
+}--><!--bindings={}--></nz-form-control></nz-form-item><nz-form-item _ngcontent-pbk-c213="" class="ant-form-item ant-row"><i _ngcontent-pbk-c213="">*</i><nz-form-label _ngcontent-pbk-c213="" nzfor="email" class="ant-form-item-label ant-col" ng-reflect-nz-for="email"><label for="email">产品品牌<!--bindings={}--></label></nz-form-label><nz-form-control _ngcontent-pbk-c213="" class="ng-tns-c125-6 ant-form-item-control ant-col ng-star-inserted"><div class="ant-form-item-control-input ng-tns-c125-6"><div class="ant-form-item-control-input-content ng-tns-c125-6"><nz-select _ngcontent-pbk-c213="" nzplaceholder="请选择产品品牌" nzallowclear="true" name="companyId" class="ng-tns-c138-7 ant-select ng-tns-c125-6 ant-select-show-arrow ant-select-allow-clear ant-select-single ng-untouched ng-pristine ng-valid ng-star-inserted" ng-reflect-nz-place-holder="请选择产品品牌" ng-reflect-nz-allow-clear="true" ng-reflect-name="companyId"><nz-select-top-control cdkoverlayorigin="" class="ng-tns-c138-7 ant-select-selector" ng-reflect-open="false" ng-reflect-disabled="false" ng-reflect-mode="default" ng-reflect-place-holder="请选择产品品牌" ng-reflect-max-tag-count="Infinity" ng-reflect-token-separators="" ng-reflect-show-search="false" ng-reflect-autofocus="false" ng-reflect-list-of-top-item=""><nz-select-search class="ant-select-selection-search ng-star-inserted" ng-reflect-disabled="false" ng-reflect-show-input="false" ng-reflect-mirror-sync="false" ng-reflect-autofocus="false" ng-reflect-focus-trigger="false"><input autocomplete="off" class="ant-select-selection-search-input ng-untouched ng-pristine ng-valid" readonly="readonly" ng-reflect-is-disabled="false" style="opacity: 0;"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></nz-select-search><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-switch-case": "default"
+}--><!--container--><!--ng-container--><nz-select-placeholder class="ant-select-selection-placeholder ng-star-inserted" ng-reflect-placeholder="请选择产品品牌"> 请选择产品品牌 <!--ng-container--><!--bindings={
+  "ng-reflect-nz-string-template-outlet": "请选择产品品牌"
+}--></nz-select-placeholder><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></nz-select-top-control><nz-select-arrow class="ant-select-arrow ng-tns-c138-7 ng-star-inserted" ng-reflect-loading="false" ng-reflect-search="false"><i nz-icon="" nztype="down" ng-reflect-nz-type="down" class="anticon anticon-down ng-star-inserted"><svg viewBox="64 64 896 896" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="down" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg></i><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></nz-select-arrow><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-if": "0"
+}--><!--bindings={
+  "ng-reflect-open": "false"
+}--></nz-select></div><span class="ant-form-item-children-icon ng-tns-c125-6"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></span></div><!--bindings={
+  "ng-reflect-ng-if": null
+}--><!--bindings={}--></nz-form-control></nz-form-item><nz-form-item _ngcontent-pbk-c213="" class="ant-form-item ant-row"><i _ngcontent-pbk-c213="">*</i><nz-form-label _ngcontent-pbk-c213="" nzfor="email" class="ant-form-item-label ant-col" ng-reflect-nz-for="email"><label for="email">产品名称<!--bindings={}--></label></nz-form-label><nz-form-control _ngcontent-pbk-c213="" class="ng-tns-c125-8 ant-form-item-control ant-col ng-star-inserted"><div class="ant-form-item-control-input ng-tns-c125-8"><div class="ant-form-item-control-input-content ng-tns-c125-8"><input _ngcontent-pbk-c213="" name="manualSerie" type="text" nz-input="" style="width: 126px;" ng-reflect-name="manualSerie" class="ng-tns-c125-8 ng-untouched ng-pristine ng-valid"><span _ngcontent-pbk-c213="" style="margin-left: 10px; margin-right: 10px;" class="ng-tns-c125-8">—</span><input _ngcontent-pbk-c213="" name="manualName" type="text" nz-input="" style="width: 313px;" ng-reflect-name="manualName" class="ng-tns-c125-8 ng-untouched ng-pristine ng-valid"></div><span class="ant-form-item-children-icon ng-tns-c125-8"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></span></div><!--bindings={
+  "ng-reflect-ng-if": null
+}--><!--bindings={}--></nz-form-control></nz-form-item></form><div _ngcontent-pbk-c213="" class="product-size"><div _ngcontent-pbk-c213="" class="text">产品型号：</div><!--bindings={
+  "ng-reflect-ng-for-of": ""
+}--><button _ngcontent-pbk-c213="" nz-button="" nztype="dashed" class="up-loader ant-btn ant-btn-dashed" ng-reflect-nz-type="dashed"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><span class="ng-star-inserted"> + </span></button></div><app-manual-model-config _ngcontent-pbk-c213="" _nghost-pbk-c211="" ng-reflect-config-list=""><table _ngcontent-pbk-c211="" class="product-params"><tr _ngcontent-pbk-c211="" class="top"><td _ngcontent-pbk-c211="">型号配置 :</td><td _ngcontent-pbk-c211=""><button _ngcontent-pbk-c211="" nz-button="" nztype="default" class="ant-btn" ng-reflect-nz-type="default"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><span class="ng-star-inserted">+添加</span></button></td></tr><tr _ngcontent-pbk-c211="" class="foot"><td _ngcontent-pbk-c211="" style="width: 5%;">序号</td><td _ngcontent-pbk-c211="" style="width: 10%;">配置名称</td><td _ngcontent-pbk-c211="" style="width: 70%;">配置参数</td><td _ngcontent-pbk-c211="" style="width: 5%;">多选</td><td _ngcontent-pbk-c211="" style="width: 10%; border-right: none;">操作</td></tr><!--bindings={
+  "ng-reflect-ng-for-of": ""
+}--></table></app-manual-model-config><div _ngcontent-pbk-c213="" class="product-size"><div _ngcontent-pbk-c213="" class="text">产品图片：</div><nz-upload _ngcontent-pbk-c213="" nzaction="https://www.mocky.io/v2/5cc8019d300000980a055e76" nzname="avatar" nzlisttype="picture-card" class="avatar-uploader ant-upload-picture-card-wrapper" ng-reflect-nz-action="https://www.mocky.io/v2/5cc801" ng-reflect-nz-name="avatar" ng-reflect-nz-list-type="picture-card" ng-reflect-nz-show-upload-list="false"><!--container--><!--container--><!--container--><nz-upload-list class="ng-tns-c147-9 ant-upload-list ant-upload-list-picture-card ng-star-inserted" ng-reflect-locale="[object Object]" ng-reflect-list-type="picture-card" ng-reflect-items="" ng-reflect-icons="false" ng-reflect-on-remove="(file) =&gt; {
+            this.u" ng-reflect-dir="ltr" dir="ltr" style="display: none;"><!--bindings={
+  "ng-reflect-ng-for-of": ""
+}--></nz-upload-list><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-if": null
+}--><!--bindings={
+  "ng-reflect-ng-template-outlet": "[object Object]"
+}--><div ng-reflect-ng-class="ant-upload,ant-upload-select,a" class="ant-upload ant-upload-select ant-upload-select-picture-card ng-star-inserted"><div nz-upload-btn="" class="ant-upload" ng-reflect-options="[object Object]" tabindex="0" role="button"><input type="file" style="display: none;"><div _ngcontent-pbk-c213="" class="ant-upload-text ng-star-inserted">+</div><div _ngcontent-pbk-c213="" class="ng-star-inserted">上传</div><!--ng-container--><!--bindings={
+  "ng-reflect-ng-template-outlet": "[object Object]"
+}--></div></div><!--bindings={
+  "ng-reflect-ng-template-outlet": "[object Object]"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--><!--container--></nz-upload></div><div _ngcontent-pbk-c213="" class="foot-control"><nz-tabset _ngcontent-pbk-c213="" class="ant-tabs ant-tabs-top ant-tabs-default"><nz-tabs-nav role="tablist" class="ant-tabs-nav ng-star-inserted" ng-reflect-selected-index="0" ng-reflect-ink-bar-animated="true" ng-reflect-addable="false" ng-reflect-add-icon="plus" ng-reflect-hide-bar="false" ng-reflect-position="horizontal"><div class="ant-tabs-nav-wrap"><div nztabscrolllist="" class="ant-tabs-nav-list" style="transform: translate(0px, 0px);"><div class="ant-tabs-tab ant-tabs-tab-active ng-star-inserted"><div role="tab" nztabnavitem="" cdkmonitorelementfocus="" class="ant-tabs-tab-btn" ng-reflect-disabled="false" ng-reflect-tab="[object Object]" ng-reflect-active="true" tabindex="0" aria-disabled="false" aria-selected="true" aria-controls="nz-tabs-1-tab-0">Tab 1<!--ng-container--><!--bindings={
+  "ng-reflect-nz-string-template-outlet-context": "[object Object]"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div></div><div class="ant-tabs-tab ng-star-inserted"><div role="tab" nztabnavitem="" cdkmonitorelementfocus="" class="ant-tabs-tab-btn" ng-reflect-disabled="false" ng-reflect-tab="[object Object]" ng-reflect-active="false" tabindex="-1" aria-disabled="false" aria-selected="false" aria-controls="nz-tabs-1-tab-1">Tab 2<!--ng-container--><!--bindings={
+  "ng-reflect-nz-string-template-outlet-context": "[object Object]"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div></div><div class="ant-tabs-tab ng-star-inserted"><div role="tab" nztabnavitem="" cdkmonitorelementfocus="" class="ant-tabs-tab-btn" ng-reflect-disabled="false" ng-reflect-tab="[object Object]" ng-reflect-active="false" tabindex="-1" aria-disabled="false" aria-selected="false" aria-controls="nz-tabs-1-tab-2">Tab 3<!--ng-container--><!--bindings={
+  "ng-reflect-nz-string-template-outlet-context": "[object Object]"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><div nz-tabs-ink-bar="" class="ant-tabs-ink-bar ant-tabs-ink-bar-animated" ng-reflect-position="horizontal" ng-reflect-animated="true" style="left: 0px; width: 33px;"></div></div></div><nz-tab-nav-operation class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden" ng-reflect-add-icon="plus" ng-reflect-addable="false" ng-reflect-items=""><button nz-dropdown="" type="button" tabindex="-1" aria-hidden="true" nzoverlayclassname="nz-tabs-dropdown" class="ant-tabs-nav-more ant-dropdown-trigger" ng-reflect-nz-overlay-class-name="nz-tabs-dropdown" ng-reflect-nz-dropdown-menu="[object Object]" ng-reflect-nz-overlay-style="[object Object]"><i nz-icon="" nztype="ellipsis" ng-reflect-nz-type="ellipsis" class="anticon anticon-ellipsis"><svg viewBox="64 64 896 896" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="ellipsis" aria-hidden="true"><path d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"></path></svg></i></button><!--container--><!--container--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></nz-tab-nav-operation><!--bindings={}--></nz-tabs-nav><!--bindings={
+  "ng-reflect-ng-if": "3"
+}--><div class="ant-tabs-content-holder"><div class="ant-tabs-content ant-tabs-content-top ant-tabs-content-animated" style="margin-left: 0%;"><div nz-tab-body="" class="ant-tabs-tabpane ant-tabs-tabpane-active ng-star-inserted" ng-reflect-active="true" ng-reflect-content="[object Object]" ng-reflect-force-render="false" ng-reflect-tab-pane-animated="true" tabindex="0" aria-hidden="false">Content of Tab Pane 1<!--bindings={
+  "ng-reflect-ng-template-outlet": "[object Object]"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></div><div nz-tab-body="" class="ant-tabs-tabpane ng-star-inserted" ng-reflect-active="false" ng-reflect-content="[object Object]" ng-reflect-force-render="false" ng-reflect-tab-pane-animated="true" tabindex="-1" aria-hidden="true" style="visibility: hidden; height: 0px;"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div nz-tab-body="" class="ant-tabs-tabpane ng-star-inserted" ng-reflect-active="false" ng-reflect-content="[object Object]" ng-reflect-force-render="false" ng-reflect-tab-pane-animated="true" tabindex="-1" aria-hidden="true" style="visibility: hidden; height: 0px;"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div></nz-tabset></div></div><app-manual-model-modal _ngcontent-pbk-c213="" _nghost-pbk-c212="" ng-reflect-is-visible="true"><div _ngcontent-pbk-c212="" style="width: 1000px;"><nz-modal _ngcontent-pbk-c212="" nztitle="添加型号" style="width: 1000px;" ng-reflect-nz-title="添加型号" ng-reflect-nz-visible="true"></nz-modal><!--container--></div></app-manual-model-modal></div></app-add-product><!--container--></nz-content></nz-layout></nz-layout></nz-layout></app-home></app-root>
+  <script src="./Management2_files/runtime.js.下载" defer=""></script><script src="./Management2_files/polyfills.js.下载" defer=""></script><script src="./Management2_files/styles.js.下载" defer=""></script><script src="./Management2_files/vendor.js.下载" defer=""></script><script src="./Management2_files/main.js.下载" defer=""></script>
+
+<div class="cdk-overlay-container"><div class="cdk-overlay-backdrop ant-modal-mask cdk-overlay-backdrop-showing" style="z-index: 1000;"></div><div class="cdk-global-overlay-wrapper" dir="ltr"><div id="cdk-overlay-0" class="cdk-overlay-pane" style="position: static;"><div tabindex="0" class="cdk-visually-hidden cdk-focus-trap-anchor" aria-hidden="true"></div><nz-modal-container tabindex="-1" role="dialog" class="ng-tns-c198-11 ng-trigger ng-trigger-modalContainer ant-modal-wrap ng-star-inserted" style="z-index: 1000;"><div role="document" class="ant-modal ng-tns-c198-11" style="width: 520px; transform-origin: -310px 274.594px 0px;"><div class="ant-modal-content ng-tns-c198-11"><button aria-label="Close" nz-modal-close="" class="ant-modal-close ng-tns-c198-11 ng-star-inserted" style=""><span class="ant-modal-close-x"><i nz-icon="" class="anticon ant-modal-close-icon anticon-close ng-star-inserted" ng-reflect-nz-type="close"><svg viewBox="64 64 896 896" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="close" aria-hidden="true"><path d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"></path></svg></i><!--ng-container--><!--bindings={
+  "ng-reflect-nz-string-template-outlet": "close"
+}--></span></button><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><div nz-modal-title="" class="ant-modal-header ng-tns-c198-11 ng-star-inserted" style=""><div class="ant-modal-title"><div class="ng-star-inserted">添加型号</div><!--ng-container--><!--bindings={
+  "ng-reflect-nz-string-template-outlet": "添加型号"
+}--></div></div><!--bindings={
+  "ng-reflect-ng-if": "添加型号"
+}--><div class="ant-modal-body ng-tns-c198-11"><app-manual-model-config _ngcontent-pbk-c212="" _nghost-pbk-c211="" class="ng-star-inserted" style="
+    width: 800px;
+"><table _ngcontent-pbk-c211="" class="product-params"><tr _ngcontent-pbk-c211="" class="top"><td _ngcontent-pbk-c211="">型号配置 :</td><td _ngcontent-pbk-c211=""><button _ngcontent-pbk-c211="" nz-button="" nztype="default" class="ant-btn" ng-reflect-nz-type="default"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><span class="ng-star-inserted">+添加</span></button></td></tr><tr _ngcontent-pbk-c211="" class="foot"><td _ngcontent-pbk-c211="" style="width: 5%;">序号</td><td _ngcontent-pbk-c211="" style="width: 10%;">配置名称</td><td _ngcontent-pbk-c211="" style="width: 70%;">配置参数</td><td _ngcontent-pbk-c211="" style="width: 5%;">多选</td><td _ngcontent-pbk-c211="" style="width: 10%; border-right: none;">操作</td></tr><!--bindings={
+  "ng-reflect-ng-for-of": ""
+}--></table></app-manual-model-config><!--ng-container--><!--bindings={
+  "ng-reflect-portal": ""
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div nz-modal-footer="" class="ant-modal-footer ng-tns-c198-11 ng-star-inserted" ng-reflect-modal-ref="[object Object]" style=""><button nz-button="" class="ant-btn ng-star-inserted" ng-reflect-nz-loading="false" ng-reflect-disabled="false"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><span class="ng-star-inserted"> 取消 </span></button><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><button nz-button="" class="ant-btn ant-btn-primary ng-star-inserted" ng-reflect-nz-type="primary" ng-reflect-nz-danger="false" ng-reflect-nz-loading="false" ng-reflect-disabled="false"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><span class="ng-star-inserted"> 确定 </span></button><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></div><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></div></div></nz-modal-container><div tabindex="0" class="cdk-visually-hidden cdk-focus-trap-anchor" aria-hidden="true"></div></div></div></div></body></html>

@@ -1,0 +1,144 @@
+/* 右边内容 */
+.content {
+  width: auto;
+  display: flex;
+  height: 150em;
+}
+
+/* 左侧分类栏 */
+.left-list {
+  width: 250px;
+  height: 147.6em;
+  background-color: #fff;
+}
+
+.left-list .title {
+  box-sizing: border-box;
+  padding-left: 1em;
+  width: 100%;
+  line-height: 5em;
+  font-size: 1.4em;
+}
+/* 右侧商品栏 */
+.right-product {
+  box-sizing: border-box;
+  width: 100%;
+  height: 147.6em;
+  border: 0.1em solid rgb(228, 228, 228);
+  background-color: rgb(241, 244, 245);
+}
+
+/* 右侧商品栏详情 */
+.product-content {
+  width: 100%;
+  height: 100%;
+  padding: 2em;
+  margin: 0 auto;
+}
+/* .product-content .head {
+  display: flex;
+  width: 100%;
+  height: 3.3em;
+  justify-content: space-between;
+  margin-bottom: 1em;
+} */
+
+app-head-text button {
+  width: 100%;
+  height: 100%;
+}
+
+/* 中间部分内容 */
+.center {
+  display: flex;
+  width: 100%;
+  height: 101px;
+  background-color: #fff;
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+.center .search {
+  width: 100%;
+  border: 1px solid rgb(221, 221, 221);
+}
+
+/* 中间表格 */
+.top {
+  width: 100%;
+  height: 50%;
+}
+.top td {
+  border-right: 1px solid rgb(221, 221, 221);
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+.top :nth-child(1),
+.top :nth-child(3) {
+  text-align: end;
+  width: 20%;
+  background-color: rgb(242, 242, 242);
+}
+.top :nth-child(2),
+.top :nth-child(4) {
+  width: 30%;
+}
+.bottom {
+  width: 100%;
+}
+
+.bottom :first-child {
+  text-align: start;
+}
+.bottom :last-child {
+  text-align: end;
+}
+.button-list button {
+  margin-left: 10px;
+}
+
+nz-select {
+  margin-left: 10px;
+  width: 250px;
+}
+nz-option {
+  text-align: start;
+}
+/* 底部内容 */
+.footer {
+  width: 100%;
+
+  background-color: #fff;
+  padding: 1em;
+}
+
+.footer p {
+  font-size: 1.4em;
+  color: rgb(55, 58, 62);
+}
+.footer .img-list {
+  display: flex;
+  overflow: hidden;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.img-list a {
+  display: block;
+}
+.img-list li {
+  margin: 100px;
+  width: 370px;
+  height: 200px;
+}
+
+.img-list img {
+  width: 370px;
+  height: 271px;
+}
+.img-list .img-text {
+  text-align: center;
+  color: rgb(51, 51, 51);
+  font-size: 16px;
+}
+
+nz-pagination {
+  text-align: end;
+}

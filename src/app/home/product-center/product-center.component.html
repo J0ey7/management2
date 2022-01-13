@@ -1,0 +1,241 @@
+<div class="wrapper">
+  <div class="top-text">
+    <app-head-text>
+      <p left>产品列表</p>
+      <div right class="button-list">
+        <!--路由跳转产品入库 -->
+        <!-- <button nz-button nzType="primary" (click)="importStorage()">
+          <i nz-icon nzType="home"></i>入库
+        </button> -->
+        <!-- 动态组件跳转产品入库 -->
+        <button
+          nz-button
+          nzType="primary"
+          (click)="addTab('ImportStorageComponent')"
+        >
+          <i nz-icon nzType="home"></i>入库
+        </button>
+        <button nz-button nzType="primary">
+          <i nz-icon nzType="home"></i>返修
+        </button>
+        <button nz-button nzType="primary">
+          <i nz-icon nzType="home"></i>出库
+        </button>
+        <button nz-button nzType="primary">
+          <i nz-icon nzType="home"></i>物流
+        </button>
+        <button nz-button nzType="primary">
+          <i nz-icon nzType="home"></i>维护
+        </button>
+      </div>
+    </app-head-text>
+  </div>
+
+  <div class="product-choice">
+    <table class="list-table">
+      <tr class="list-item">
+        <td class="backColor">产品分类：</td>
+        <td>
+          <nz-select
+            style="width: 250px; text-align: start; margin-left: 10px"
+            [(ngModel)]="manual.productCode"
+            nzAllowClear
+            nzPlaceHolder="请选择产品分类"
+            nzShowSearch
+            (ngModelChange)="getListByType($event, 'productCode')"
+          >
+            <nz-option-group
+              *ngFor="let item of productTypeList; index as idx"
+              [nzLabel]="item.itemName"
+              nzAllowClear
+              nzPlaceHolder="请选择产品名称"
+              nzShowSearch
+            >
+              <nz-option
+                *ngFor="let subItem of item.children"
+                [nzValue]="subItem"
+                [nzLabel]="subItem.itemName"
+              ></nz-option>
+            </nz-option-group>
+          </nz-select>
+        </td>
+        <td class="backColor">产品名称：</td>
+        <td>
+          <nz-select
+            [(ngModel)]="manual.productName"
+            style="width: 250px; text-align: start; margin-left: 10px"
+            (ngModelChange)="getListByName($event, 'name')"
+          >
+            <nz-option
+              *ngFor="let item of names"
+              [nzLabel]="item.name!"
+              [nzValue]="item"
+            >
+            </nz-option>
+          </nz-select>
+        </td>
+      </tr>
+      <tr class="list-item">
+        <td class="backColor">产品序列号：</td>
+        <td>
+          <nz-input-group
+            [nzSuffix]="suffixIconSearch"
+            style="
+              width: 250px;
+              display: flex;
+              justify-content: space-between;
+              background-color: #fff;
+              margin-left: 10px;
+            "
+          >
+            <input
+              type="text"
+              [(ngModel)]="manual.serialNumber"
+              nz-input
+              style="width: 100%; background-color: #fff; text-align: left"
+              (keyup)="onInputChange($event)"
+            />
+          </nz-input-group>
+          <ng-template #suffixIconSearch>
+            <i nz-icon nzType="search" (click)="search()"></i>
+          </ng-template>
+        </td>
+        <td class="backColor">产品品牌：</td>
+        <td>
+          <nz-select
+            [(ngModel)]="searchManual.companyName"
+            style="width: 250px; text-align: start; margin-left: 10px"
+            (ngModelChange)="getListByCompanys($event, 'companyId')"
+          >
+            <nz-option
+              *ngFor="let item of companyList"
+              [nzLabel]="item.companyName!"
+              [nzValue]="item"
+            >
+            </nz-option>
+          </nz-select>
+        </td>
+      </tr>
+
+      <tr class="list-item">
+        <td class="backColor">生产日期：</td>
+        <td class="dtata">
+          <nz-radio-group class="choice" style="width: 500px">
+            <label nz-radio nzValue="本日" (click)="getDay()">本日</label>
+            <label
+              nz-radio
+              nzValue="本周"
+              style="width: 80px"
+              (click)="getWeek()"
+              >本周</label
+            >
+            <label nz-radio nzValue="本月" (click)="getMonth()">本月</label>
+            <label nz-radio nzValue="" (click)="myBtn()">自定义</label>
+          </nz-radio-group>
+          <nz-range-picker
+            class="data"
+            [(ngModel)]="timeSelect"
+            [nzDisabled]="isshowDate"
+            (nzOnCalendarChange)="getTimeSelect($event)"
+          ></nz-range-picker>
+        </td>
+      </tr>
+      <tr class="list">
+        <td class="last">
+          <div class="tags">
+            <span style="margin-left: 10px">已选条件：</span>
+            <ng-container *ngFor="let tag of tags; let i = index">
+              <nz-tag
+                *ngIf="!tag.hide && tag.value"
+                [nzColor]="'#62A8EA'"
+                [nzMode]="'closeable'"
+                style="height: 29px; margin-top: 5px; padding-top: 3px"
+              >
+                {{ tag.title }}：{{ tag.text }}
+              </nz-tag>
+            </ng-container>
+          </div>
+          <div class="btn-list">
+            <button nz-button nzType="primary" (click)="searchAll()">
+              查询
+            </button>
+            <button nz-button nzType="primary" (click)="clearSearch()">
+              清除
+            </button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="product-state">
+    <nz-table
+      #rowSelectionTable
+      nzShowSizeChanger
+      [nzData]="manualList"
+      [nzShowPagination]="isShowPagination"
+    >
+      <!-- (nzCurrentPageDataChange)="onCurrentPageDataChange($event)" -->
+      <thead>
+        <tr class="top">
+          <th
+            [nzChecked]="checked"
+            [nzIndeterminate]="indeterminate"
+            (nzCheckedChange)="onAllChecked($event)"
+            nzShowCheckbox
+          ></th>
+          <th>序号</th>
+          <th>产品序列号</th>
+          <th>产品名称</th>
+          <th>产品分类</th>
+          <th>产品品牌</th>
+          <th>生产日期</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of manualList; index as idx" class="bottom">
+          <!-- 多选框 -->
+          <td
+            [nzChecked]="setOfCheckedId.has(data.id!)"
+            nzShowCheckbox
+            (nzCheckedChange)="onItemChecked(data.id!, $event)"
+          ></td>
+          <td>{{ idx + 1 }}</td>
+          <td>
+            <!-- 路由跳转产品详情 -->
+            <!-- <a [routerLink]="['/importDetail', data.id]" style="border: none">{{
+              data.serialNumber
+            }}</a> -->
+            <a
+              (click)="addTab('ImportDetailComponent', data.id)"
+              style="border: none"
+              >{{ data.serialNumber }}</a
+            >
+          </td>
+          <td>
+            <!-- 路由跳转手册详情 -->
+            <!-- <a
+              [routerLink]="['/detail', data.manualId]"
+              style="border-left: none"
+              >{{ data.name }}</a
+            > -->
+            <a
+              (click)="addTab('ProductDetailComponent', data.manualId)"
+              style="border-left: none"
+              >{{ data.name }}</a
+            >
+          </td>
+          <td>{{ data.pproductName }} > {{ data.productName }}</td>
+          <td>{{ data.companyName }}</td>
+          <td>{{ data.productDate }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+    <div style="margin-top: 20px">
+      <app-pagination-tpl
+        [page]="Page"
+        (pageChanged)="pageChanged($event)"
+      ></app-pagination-tpl>
+    </div>
+  </div>
+</div>

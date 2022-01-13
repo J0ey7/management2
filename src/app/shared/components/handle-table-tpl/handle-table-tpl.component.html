@@ -1,0 +1,13 @@
+<table>
+  <tr *ngfor="let items of dataList">
+    <ng-container *ngfor="let item of items">
+      <td class="label">
+        <label>{{ item.label }}</label>
+      </td>
+      <!-- 无跨列情况 -->
+      <td class="content">
+        <ng-container> </ng-container>
+      </td>
+    </ng-container>
+  </tr>
+</table>

@@ -1,0 +1,129 @@
+<div class="detail-content">
+  <app-head-text>
+    <p left>产品详情</p>
+    <!-- <button nz-button nzType="primary" right (click)="editClick()">编辑</button> -->
+    <button
+      nz-button
+      nzType="primary"
+      right
+      (click)="addTab('IncomingEditorComponent', data.id)"
+    >
+      编辑
+    </button>
+  </app-head-text>
+
+  <div class="product-body">
+    <div class="wrapper">
+      <div class="img-left">
+        <div class="img-show" style="overflow: hidden">
+          <ng-container *ngFor="let img of imgList">
+            <img [src]="img.filePath + '/' + img.storeName" />
+          </ng-container>
+        </div>
+        <div class="img-start-left">
+          <button><i nz-icon nzType="left" nzTheme="outline"></i></button>
+          <nz-carousel>
+            <div class="carousel-content">
+              <!-- <img
+                [src]="imgList[0]"
+                style="width: 100px; height: 100%; margin: 0 auto"
+              /> -->
+              <ng-container *ngFor="let img of imgList">
+                <img
+                  [src]="img.filePath + '/' + img.storeName"
+                  style="width: 100px; height: 100%; margin: 0 auto"
+                />
+              </ng-container>
+            </div>
+          </nz-carousel>
+          <button><i nz-icon nzType="right" nzTheme="outline"></i></button>
+        </div>
+      </div>
+
+      <div class="right-info">
+        <table>
+          <tr class="title">
+            <td>{{ serialNumber }}</td>
+          </tr>
+          <tr>
+            <td style="width: 235.02px">手册编号</td>
+            <td>
+              <span>{{ manual.productCode }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td>产品分类</td>
+            <td>
+              <span>{{ manual.pproductName }}>{{ manual.productName }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td>产品品牌</td>
+            <td>
+              <span>{{ manual.companyName }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td>生产日期</td>
+            <td>
+              <span>{{ productDate }}</span>
+            </td>
+          </tr>
+
+          <tr class="line">
+            <td style="width: 235.02px">产品型号</td>
+            <td>
+              <button
+                nz-button
+                nzType="primary"
+                nzGhost
+                *ngFor="let model of selectModel"
+              >
+                {{ model.modelName }}
+              </button>
+            </td>
+          </tr>
+          <!-- 公共的配置 -->
+          <tr *ngFor="let config of selectConfigList">
+            <td style="width: 235.02px">{{ config.name }}</td>
+            <td>
+              <nz-button-group>
+                <button
+                  nz-button
+                  nzType="primary"
+                  nzGhost
+                  *ngFor="let configvalue of config.configvalueList"
+                >
+                  {{ configvalue.value }}
+                </button>
+              </nz-button-group>
+            </td>
+          </tr>
+          <!-- 独有的配置 -->
+          <tr class="config" *ngFor="let config of selectPrivate">
+            <td>{{ config.name }}</td>
+            <td>
+              <button
+                nz-button
+                nzType="primary"
+                nzGhost
+                *ngFor="let configvalue of config.configvalueList"
+              >
+                {{ configvalue.value }}
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="product-message" *ngIf="manual">
+      <nz-tabset>
+        <nz-tab nzTitle="产品介绍">
+          <div [innerHTML]="manual.introduction"></div>
+        </nz-tab>
+        <nz-tab nzTitle="技术参数">Content of Tab Pane 2</nz-tab>
+        <nz-tab nzTitle="产品说明书">Content of Tab Pane 3</nz-tab>
+      </nz-tabset>
+    </div>
+  </div>
+</div>
